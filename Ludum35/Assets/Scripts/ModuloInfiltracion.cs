@@ -7,6 +7,14 @@
  */ 
 public class ModuloInfiltracion  {
 
+
+	private int numeroCambiaformas;
+	private int numeroRobotsOrdenPublico;
+	private float bonificacionResistenciaRobot;
+	private int numeroRobotsPerdidosInfiltracion;
+	private int numeroRecursosPerdidosInfiltracion;
+
+
 	/**
 	 *  Método para la inicialización del módulo
 	 */ 
@@ -17,7 +25,9 @@ public class ModuloInfiltracion  {
 	/**
 	 * Módulo para realizar los cálculos necesarios para el cambio de turno
 	 */ 
-	public void calcularTurno(){
+	public void calcularTurno(DatosConfiguracion datosConfig){
+		numeroRobotsPerdidosInfiltracion = 0;
+		numeroRecursosPerdidosInfiltracion = 0;
 	}
 
 }
