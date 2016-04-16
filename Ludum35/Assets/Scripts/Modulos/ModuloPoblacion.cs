@@ -11,7 +11,10 @@ public class ModuloPoblacion  {
     private int numeroMuertesPorHambre;
 
     //Cálculos referentes al control de población por turno
-    void calculaTurno(DatosTurno datosTurno) {
+    void calculaTurno(ref DatosTurno datosTurno) {
+
+        //Cargamos datos de archivo de configuracion
+        
 
         //Población, bonificador y comida inicial del turno actual
         poblacionInicial = datosTurno.numeroPoblacionInicial;
@@ -26,6 +29,7 @@ public class ModuloPoblacion  {
         //Si se consume más comida de la que se dispone
         if (numeroComidaInicial - numeroComidaConsumida < 0) {
 
+           
             int probabilidadMuertes = Random.Range(core.Configuracion.limiteInferiorPerdidaPorHambre, core.configuracion.limiteSuperiorPerdidaPorHambre + 1);
 
             numeroMuertesPorHambre = (probabilidadMuertes * poblacionInicial) / 100;
