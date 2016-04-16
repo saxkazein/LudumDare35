@@ -7,7 +7,8 @@ public class Core : Singleton<Core>
     #region VMiembro
     public DatosConfiguracion configuracion;
 
-    private DatosTurnoIniciales datosTurnoIniciales; 
+    private DatosTurnoIniciales datosTurnoIniciales;
+    private DatosTurno datosTurno;
 
     private string pathArchivoConfiguracion = "configuracion";
     private string pathArchivoDatosIniciales = "datosIniciales";
@@ -16,13 +17,18 @@ public class Core : Singleton<Core>
     private ModuloExpedicion moduloExpedicion;
     private ModuloInfiltracion moduloInfiltracion;
     private ModuloPoblacion moduloPoblacion;
-
     #endregion
 
     #region Init
     void Start()
     {
         CargaDatosConfiguracion();
+        InicializaModulos();
+        IniciaDatosPartida();
+    }
+
+    void InicializaModulos()
+    {
         moduloDefensa = new ModuloDefensa();
         moduloExpedicion = new ModuloExpedicion();
         moduloExpedicion.Start(configuracion);
@@ -45,14 +51,23 @@ public class Core : Singleton<Core>
     #region GestionTurnos
     void IniciaDatosPartida()
     {
-
+        datosTurno = new DatosTurno();
+        datosTurno.ResetDatosTurno(datosTurnoIniciales);
     }
 
-    
-    #endregion GestionTurnos
+    void CalculaTurno()
+    {
+        moduloPoblacion.CalculaTurno(datosTurno);
+    }
 
-    void Update()
+    void ProcesaDatosTurno()
     {
 
     }
+
+    public void PasaTurno()
+    {
+
+    }
+    #endregion GestionTurnos
 }
