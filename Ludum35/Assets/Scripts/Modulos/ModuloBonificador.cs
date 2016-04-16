@@ -7,8 +7,6 @@
  */ 
 public class ModuloBonificador {
 
-
-
 	private float aumentoBonificacionResistenciaRobots;
 	private float aumentoBonificacionCosteRobots;
 	private float aumentoBonificacionMejoraTorreta;
