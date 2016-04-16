@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 
 /**
  * 
  * Módulo para la gestión de la expedición.
  * 
- */ 
+ */
 public class ModuloExpedicion {
 
 
@@ -20,8 +21,8 @@ public class ModuloExpedicion {
 	 *  Método para la inicialización del módulo
 	 */ 
 	public void Start(DatosConfiguracion datosConfiguracion){
-		numeroMaximoRecursoRecuperado = datosConfiguracion.recursosBasePorExpedicion;
-		numeroMaximoCiudadanosRecuperados = datosConfiguracion.poblacionBasePorExpedicion;
+		numeroMaximoRecursoRecuperado = Mathf.RoundToInt(datosConfiguracion.recursosBasePorExpedicion);
+		numeroMaximoCiudadanosRecuperados = Mathf.RoundToInt(datosConfiguracion.poblacionBasePorExpedicion);
 		posibilidadCambiaformas = datosConfiguracion.probabilidadInfiltradoExpedicion;
 		maximoPorcentajeCambiaformas = datosConfiguracion.maximoPorcentajeInfiltradoExpedicion;
 		posibilidadMuerteRobot = datosConfiguracion.probabilidadBasePerderRobotExpedicion;

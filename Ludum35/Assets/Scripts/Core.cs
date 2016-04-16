@@ -1,19 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Core : Singleton<Core> {
+public class Core : Singleton<Core>
+{
 
     #region VMiembro
     public DatosConfiguracion configuracion;
-    private string pathArchivoConfiguracion = "configuracion.json";
+    private string pathArchivoConfiguracion = "configuracion";
     #endregion
 
     #region Init
     void Start()
     {
-        
+        CargaDatosConfiguracion();
 
-    }	
+    }
     #endregion Init
 
     #region CargaDeDatos
@@ -28,7 +29,8 @@ public class Core : Singleton<Core> {
     #region GestionTurnos
     #endregion GestionTurnos
 
-    void Update () {
-	
-	}
+    void Update()
+    {
+
+    }
 }
