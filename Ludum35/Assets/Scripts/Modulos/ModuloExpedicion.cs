@@ -15,6 +15,7 @@ public class ModuloExpedicion {
 	private float maximoPorcentajeCambiaformas;
 	private float posibilidadMuerteRobot;
 	private float maximoPorcentajeMuertesRobots;
+	private float bonificadorPorTurnosRecurso;
 
 
 
@@ -28,7 +29,7 @@ public class ModuloExpedicion {
 		maximoPorcentajeCambiaformas = datosConfiguracion.maximoPorcentajeInfiltradoExpedicion;
 		posibilidadMuerteRobot = datosConfiguracion.probabilidadBasePerderRobotExpedicion;
 		maximoPorcentajeMuertesRobots = datosConfiguracion.maximoPorcentajePerdidasRobotExpedicion;
-		
+		bonificadorPorTurnosRecurso = datosConfiguracion.aumentoRecompensaExpedicionPorTurnos;
 	}
 
 
@@ -53,7 +54,8 @@ public class ModuloExpedicion {
 				for(int i=0;i<datosTurno.numeroRobotsExpedicion-datosTurno.numeroRobotsPerdidosExpedicion;i++){
 					
 					// Número de recursos recuperados
-					datosTurno.recursosRecuperadosExpedicion += Random.Range(0,numeroMaximoRecursoRecuperado);	
+					//datosTurno.recursosRecuperadosExpedicion += Random.Range(0,numeroMaximoRecursoRecuperado);
+					datosTurno.recursosRecuperadosExpedicion += Random.Range(0,numeroMaximoRecursoRecuperado*Mathf.Log(datosTurno.turnosDuracionExpedicionActiva)*bonificadorPorTurnosRecurso);
 
 					// Número de población reclutada
 					int ciudadanosReclutados = Random.Range(0,numeroMaximoCiudadanosRecuperados);
