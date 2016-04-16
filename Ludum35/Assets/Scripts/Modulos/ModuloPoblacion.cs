@@ -36,7 +36,7 @@ public class ModuloPoblacion  {
            
             float probabilidadMuertes = Random.Range(limiteInferior, limiteSuperior + 1);
 
-            numeroMuertesPorHambre = Mathf.RoundToInt((probabilidadMuertes * poblacionInicial) / 100);
+            numeroMuertesPorHambre = Mathf.RoundToInt((probabilidadMuertes * poblacionInicial) / 100)* (numeroComidaInicial - numeroComidaConsumida);
 
         }
 
