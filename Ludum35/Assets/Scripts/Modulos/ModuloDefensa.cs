@@ -23,7 +23,7 @@ public class ModuloDefensa {
 
 
         //Recuperamos datos del turno actual
-        bonificadorTorreta = datosTurno.bonificadorTorretas;
+		bonificadorTorreta = Mathf.RoundToInt(datosTurno.bonificadorTorretas);
         numeroTurno = datosTurno.numeroTurno;
 
         //Recuperamos datos de archivo de configuración

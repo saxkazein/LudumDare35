@@ -17,7 +17,7 @@ public class ModuloPoblacion  {
         //Población, bonificador y comida inicial del turno actual
         poblacionInicial = datosTurno.numeroPoblacionInicial;
         numeroComidaInicial = datosTurno.numeroComidaInicial;
-        bonificadorAlimentos = datosTurno.bonificadorAlimentos;
+		bonificadorAlimentos = Mathf.RoundToInt(datosTurno.bonificadorAlimentos);
 
         //Cargamos datos de archivo de configuracion
         float limiteInferior = Core.Instance.configuracion.limiteInferiorPerdidaPorHambre;
