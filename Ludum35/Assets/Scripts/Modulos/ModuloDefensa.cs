@@ -16,21 +16,23 @@ public class ModuloDefensa {
     private float defensaDeTorreta;
     private float porcentajeDanoPoblacion;
 
-    private Core core;
 
     //Cálculos referentes a un evento de ataque por parte de los patos
     void calculaEvento(ref DatosTurno datosTurno)
     {
-        //Recuperamos datos de archivo de configuración
-        ataqueBaseCambiaforma = core.configuracion.danoBasePatos;
-        aumentoDanoPatosPorTurno = core.configuracion.aumentoDanoPatosPorTurno;
-        varianzaDanoPatos = core.configuracion.varianzaDanoPatos;
-        defensaDeTorreta = core.configuracion.defensaTorreta;
-        porcentajeDanoPoblacion = core.configuracion.porcentajeDanoPoblacion;
+
 
         //Recuperamos datos del turno actual
         bonificadorTorreta = datosTurno.bonificadorTorretas;
         numeroTurno = datosTurno.numeroTurno;
+
+        //Recuperamos datos de archivo de configuración
+        ataqueBaseCambiaforma = Core.Instance.configuracion.danoBasePatos;
+        aumentoDanoPatosPorTurno = Core.Instance.configuracion.aumentoDanoPatosPorTurno;
+        varianzaDanoPatos = Core.Instance.configuracion.varianzaDanoPatos;
+        defensaDeTorreta = Core.Instance.configuracion.defensaTorreta;
+        porcentajeDanoPoblacion = Core.Instance.configuracion.porcentajeDanoPoblacion;
+
 
         //Calculamos el daño infligido por los patos
         float varianzaDanoFinal = Random.Range(-varianzaDanoPatos, varianzaDanoPatos + 1)/100;
