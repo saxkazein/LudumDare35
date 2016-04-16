@@ -36,10 +36,10 @@ public class ModuloExpedicion {
 	 * Módulo para realizar los cálculos necesarios para el cambio de turno
 	 */ 
 	public void calcularTurno(ref DatosTurno datosTurno){
-		if(datosTurno.flagExpedicionActiva==true){							// Si hay expedición activa
+	//	if(datosTurno.flagExpedicionActiva==true){							// Si hay expedición activa
 			
-			if (datosTurno.turnosRestantesExpedicion == 0) {			// Si se ha terminado la expedición
-				datosTurno.flagExpedicionActiva = false;
+			//if (datosTurno.turnosRestantesExpedicion == 0) {			// Si se ha terminado la expedición
+				//datosTurno.flagExpedicionActiva = false;
 
 				// Se calcula la muerte de los robots
 				float muerteRobot = 0;
@@ -60,18 +60,18 @@ public class ModuloExpedicion {
 					datosTurno.poblacionRecuperadaExpedicion += ciudadanosReclutados;
 
 					// Número de cambiaformas reclutados
-					for(int j=0;j<Mathf.RoundToInt(ciudadanosReclutados*maximoPorcentajeCambiaformas);j++){
+					/*for(int j=0;j<Mathf.RoundToInt(ciudadanosReclutados*maximoPorcentajeCambiaformas);j++){
 						if (Random.Range (0F, 1F) < posibilidadCambiaformas) {
 							datosTurno.numeroCambiaformasInicial++;
 						}
-					}
+					}*/
 				}
 
 
 		}
 
-		datosTurno.turnosRestantesExpedicion--;
-	}
+		//datosTurno.turnosRestantesExpedicion--;
+	//}
 		
 }
 
