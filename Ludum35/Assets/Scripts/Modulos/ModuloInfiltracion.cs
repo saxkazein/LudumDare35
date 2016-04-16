@@ -34,45 +34,45 @@ public class ModuloInfiltracion  {
 	}
 
 
-	/**
+    /**
 	 * Módulo para realizar los cálculos necesarios para el cambio de turno
-	 */ 
-	public void calcularTurno(ref DatosTurno datosTurno){
-		numeroRobotsPerdidosInfiltracion = 0;
+	 */
+    public void calcularEvento(ref DatosTurno datosTurno)
+    {
+        int numeroRobotsPerdidosInfiltracion = 0;
+        int numeroRecursosPerdidosInfiltracion = 0;
+        int numeroPoblacionPerdidaInfiltracion = -datosTurno.numeroCambiaformasInicial;
 
-		int indicePoblacionSobrante = 0;
-		float probabilidadAnadidaInfiltracion = 0;
+        int cambiaformasSupervivientes = datosTurno.numeroCambiaformasInicial - (datosTurno.numeroRobotsOrdenPublico * 2);
 
-		if (datosTurno.numeroPoblacionInicial > (datosTurno.numeroRobotsOrdenPublico * ciudadanosCubiertosPorRobot)) {	// Si no tenemos suficientes robots para cubrir a toda la población
-			indicePoblacionSobrante = Mathf.RoundToInt((datosTurno.numeroPoblacionInicial-(datosTurno.numeroRobotsOrdenPublico * ciudadanosCubiertosPorRobot))/ciudadanosCubiertosPorRobot);
+        float rng = 0;
 
-			probabilidadAnadidaInfiltracion = indicePoblacionSobrante * aumentoProbabilidadInfiltracionCiudadanosNoCubiertos;
-		}
-	
-		// Se obtiene el porcentaje de posibilidad de infiltración total
-		probabilidadInfiltracion += probabilidadAnadidaInfiltracion;
+        if(cambiaformasSupervivientes > 0)
+        {
+            rng = Random.Range(0.5f, 1.0f);
 
-		float infiltracionValorProbabilidad = Random.Range(0F,1F);
+            int recursos = 0;
+            for(int i = 0; i <= cambiaformasSupervivientes; i++)
+            {
+                recursos += Mathf.RoundToInt(rng * (perdidasPorEnemigo * datosTurno.numeroRecursosInicial));
+            }
+            numeroRecursosPerdidosInfiltracion = -recursos;
+        }
 
-		if(infiltracionValorProbabilidad<=probabilidadInfiltracion){				// Si la infiltracioń tiene lugar
+        int muerte = 0;
+        int limit = Mathf.RoundToInt(datosTurno.numeroRobotsOrdenPublico * maximoPorcentajeRobotsMuertos);
+        for (int i = 0; i <= datosTurno.numeroRobotsOrdenPublico; i++)
+        {
+            rng = Random.Range(0f, 1f);
+            if (rng <= probabilidadRobotMuerto - datosTurno.bonificadorResistenciaRobot)
+            {
+                muerte++;
+            }
+        }
+        numeroRobotsPerdidosInfiltracion = muerte > limit ? -limit : -muerte;
 
-			if(datosTurno.numeroCambiaformasInicial > (datosTurno.numeroRobotsOrdenPublico*enemigosMuertosPorRobot)){				// Si el número de enemigos excede la capacidad de defensa de los robots
-				datosTurno.numeroRecursosPerdidosInfiltracion = Mathf.RoundToInt((datosTurno.numeroCambiaformasInicial - (datosTurno.numeroRobotsOrdenPublico*enemigosMuertosPorRobot))*perdidasPorEnemigo);
-			}
-				
-			//Cálculo de la posibilidad de muerte de robot
-			float muerteRobot = 0;
-			int numeroMaximoRobotsMuertos = Mathf.RoundToInt(datosTurno.numeroRobotsOrdenPublico*maximoPorcentajeRobotsMuertos);
-			for (int i = 0; i < numeroMaximoRobotsMuertos; i++) {						// Efectuamos las comprobaciones para el % de los robots que se quiera
-				muerteRobot = Random.Range(0F,1F);
-				if (muerteRobot < (probabilidadRobotMuerto-datosTurno.bonificadorResistenciaRobot)) {			// Si tiene que morir un robot
-					datosTurno.numeroRobotsOrdenPublico--;
-				}
-			}
-
-		}
-
-	}
-
-
+        datosTurno.numeroRobotsPerdidosInfiltracion = numeroRobotsPerdidosInfiltracion;
+        datosTurno.numeroRecursosPerdidosInfiltracion = numeroRecursosPerdidosInfiltracion;
+        datosTurno.numeroPoblacionPerdidaInfiltracion = numeroPoblacionPerdidaInfiltracion;
+    }
 }

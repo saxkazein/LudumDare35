@@ -44,17 +44,17 @@ public class ModuloExpedicion {
 
         float bonificadorTurnos = Mathf.Log(datosTurno.turnosDuracionExpedicionActiva * bonificadorPorTurnosRecurso);
 
-        int rng = 0;
+        float rng = 0;
         int muerte = 0;
         int recurso = 0;
         int poblador = 0;
         int limit = Mathf.RoundToInt(datosTurno.numeroRobotsExpedicion*maximoPorcentajeMuertesRobots);
         for(int i = 0; i <= datosTurno.numeroRobotsExpedicion; i++)
         {
-            rng = Random.Range(0, 1);
+            rng = Random.Range(0f, 1f);
             recurso += Mathf.RoundToInt(rng * (numeroMaximoRecursoRecuperado * bonificadorTurnos));
             poblador += Mathf.RoundToInt(rng * (numeroMaximoCiudadanosRecuperados*bonificadorTurnos));
-            if (rng <= posibilidadMuerteRobot)
+            if (rng <= posibilidadMuerteRobot - datosTurno.bonificadorResistenciaRobot)
             {
                muerte++;
             }
@@ -68,7 +68,7 @@ public class ModuloExpedicion {
         limit = Mathf.RoundToInt(poblador * maximoPorcentajeCambiaformas);
         for(int i = 0; i <= poblador; i++)
         {
-            rng = Random.Range(0, 1);
+            rng = Random.Range(0f, 1f);
             if (rng <= posibilidadCambiaformas)
             {
                 cambiaforma++;
