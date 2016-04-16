@@ -36,45 +36,58 @@ public class ModuloExpedicion {
 	/**
 	 * Módulo para realizar los cálculos necesarios para el cambio de turno
 	 */ 
-	public void calcularTurno(ref DatosTurno datosTurno){
-	//	if(datosTurno.flagExpedicionActiva==true){							// Si hay expedición activa
-			
-			//if (datosTurno.turnosRestantesExpedicion == 0) {			// Si se ha terminado la expedición
-				//datosTurno.flagExpedicionActiva = false;
+	public void calcularEvento(ref DatosTurno datosTurno){
+        int numeroRobotsPerdidos = 0;
+        int numeroPoblacionRecuperada = 0;
+        int numeroCambiaformasRecuperados = 0;
+        int numeroRecursosRecuperados = 0;
 
-				// Se calcula la muerte de los robots
-				float muerteRobot = 0;
-				for (int i=0;i<Mathf.RoundToInt(datosTurno.numeroRobotsExpedicion*maximoPorcentajeMuertesRobots);i++) {
-					muerteRobot = Random.Range (0F, 1F);
-					if(muerteRobot < posibilidadMuerteRobot-datosTurno.bonificadorResistenciaRobot)
-						datosTurno.numeroRobotsPerdidosExpedicion++;
-				}
+        float bonificadorTurnos = Mathf.Log(datosTurno.turnosDuracionExpedicionActiva * bonificadorPorTurnosRecurso);
 
+        int rng = 0;
+        int muerte = 0;
+        int recurso = 0;
+        int poblador = 0;
+        int limit = Mathf.RoundToInt(datosTurno.numeroRobotsExpedicion*maximoPorcentajeMuertesRobots);
+        for(int i = 0; i <= datosTurno.numeroRobotsExpedicion; i++)
+        {
+            rng = Random.Range(0, 1);
+            recurso += Mathf.RoundToInt(rng * (numeroMaximoRecursoRecuperado * bonificadorTurnos));
+            poblador += Mathf.RoundToInt(rng * (numeroMaximoCiudadanosRecuperados*bonificadorTurnos));
+            if (rng <= posibilidadMuerteRobot)
+            {
+               muerte++;
+            }
+        }
 
-				for(int i=0;i<datosTurno.numeroRobotsExpedicion-datosTurno.numeroRobotsPerdidosExpedicion;i++){
-					
-					// Número de recursos recuperados
-					//datosTurno.recursosRecuperadosExpedicion += Random.Range(0,numeroMaximoRecursoRecuperado);
-					datosTurno.recursosRecuperadosExpedicion += Random.Range(0,numeroMaximoRecursoRecuperado*Mathf.Log(datosTurno.turnosDuracionExpedicionActiva)*bonificadorPorTurnosRecurso);
+        numeroRobotsPerdidos = muerte > limit ? -limit : -muerte;
+        numeroPoblacionRecuperada = poblador;
+        numeroRecursosRecuperados = recurso;
 
-					// Número de población reclutada
-					int ciudadanosReclutados = Random.Range(0,numeroMaximoCiudadanosRecuperados);
-					datosTurno.poblacionRecuperadaExpedicion += ciudadanosReclutados;
+        int cambiaforma = 0;
+        limit = Mathf.RoundToInt(poblador * maximoPorcentajeCambiaformas);
+        for(int i = 0; i <= poblador; i++)
+        {
+            rng = Random.Range(0, 1);
+            if (rng <= posibilidadCambiaformas)
+            {
+                cambiaforma++;
+            }
+            if (cambiaforma > limit)
+                break;
+        }
+        numeroCambiaformasRecuperados = cambiaforma;
 
-					// Número de cambiaformas reclutados
-					/*for(int j=0;j<Mathf.RoundToInt(ciudadanosReclutados*maximoPorcentajeCambiaformas);j++){
-						if (Random.Range (0F, 1F) < posibilidadCambiaformas) {
-							datosTurno.numeroCambiaformasInicial++;
-						}
-					}*/
-				}
+        //Desactivamos expedicion
+        datosTurno.flagExpedicionActiva = false;
+        datosTurno.numeroRobotsExpedicion = 0;
+        datosTurno.turnosDuracionExpedicionActiva = 0;
 
-
-		}
-
-		//datosTurno.turnosRestantesExpedicion--;
-	//}
-		
+        datosTurno.recursosRecuperadosExpedicion = numeroRecursosRecuperados;
+        datosTurno.poblacionRecuperadaExpedicion = numeroPoblacionRecuperada;
+        datosTurno.numeroRobotsPerdidosExpedicion = numeroRobotsPerdidos;
+        datosTurno.numeroCambiaformasRecuperadosExpedicion = numeroCambiaformasRecuperados;
+	}
 }
 
 

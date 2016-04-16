@@ -20,6 +20,9 @@ public class Core : Singleton<Core>
     #endregion
 
     #region Init
+    /*
+     * Carga las configuraciones, inicializa los módulos y comienza el primer turno de la partida
+     */
     void Start()
     {
         CargaDatosConfiguracion();
@@ -39,6 +42,10 @@ public class Core : Singleton<Core>
     #endregion Init
 
     #region CargaDeDatos
+
+    /*
+     * Recupera los datos de los archivos JSON y genera sus clases 
+     */
     void CargaDatosConfiguracion()
     {
         TextAsset textAsset = Resources.Load(pathArchivoConfiguracion) as TextAsset;
@@ -49,17 +56,27 @@ public class Core : Singleton<Core>
     #endregion CargaDeDatos
 
     #region GestionTurnos
+
+    /* 
+     * Inicia los datos del primer turno de la partida
+     */
     void IniciaDatosPartida()
     {
         datosTurno = new DatosTurno();
         datosTurno.ResetDatosTurno(datosTurnoIniciales);
     }
 
+    /*
+     * Llama a los modulos para que hagan sus calculos respectivos
+     */
     void CalculaTurno()
     {
         moduloPoblacion.calculaTurno(ref datosTurno);
     }
 
+    /*
+     * Recupera los datos calculados y obtiene los resultados de las operaciones para el siguiente turno
+     */
     void ProcesaDatosTurno()
     {
         int _nivelMejoraRoboticaResultante = datosTurno.nivelMejoraRoboticaResultante;
@@ -103,16 +120,25 @@ public class Core : Singleton<Core>
         datosTurno.turnosRestantesExpedicion = _turnosRestantesExpedicionResultante;
     }
 
+    /*
+     * Confirma las acciones del jugador e inicia la expedicion cuando toque
+     */
     void ConfirmaTurno()
     {
 
     }
 
+    /*
+     * Confirma si el jugador desea quedarse con los pobladores que ha encontrado en la expedicion
+     */
     void ConsultaDecisiones()
     {
 
     }
 
+    /*
+     * Inicia el proceso de pasar turno cuando el jugador pulsa el botón en la interfaz
+     */
     public void PasaTurno()
     {
         ConfirmaTurno();
