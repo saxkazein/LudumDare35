@@ -57,17 +57,68 @@ public class Core : Singleton<Core>
 
     void CalculaTurno()
     {
-        moduloPoblacion.CalculaTurno(datosTurno);
+        moduloPoblacion.calculaTurno(ref datosTurno);
     }
 
     void ProcesaDatosTurno()
+    {
+        int _nivelMejoraRoboticaResultante = datosTurno.nivelMejoraRoboticaResultante;
+        int _nivelMejoraAlimentoResultante = datosTurno.nivelMejoraAlimentoResultante;
+        int _nivelMejoraDefensaResultante = datosTurno.nivelMejoraDefensaInicial;
+        int _numeroPoblacionResultante = datosTurno.numeroPoblacionInicial + datosTurno.numeroPoblacionEncuentro + datosTurno.numeroPoblacionPerdidaAtaque + datosTurno.numeroPoblacionPerdidaInfiltracion;
+
+        int _numeroRobotsExpedicionResultante = datosTurno.numeroRobotsExpedicion;
+        int _numeroRobotsResultante = datosTurno.numeroRobotsInicio + datosTurno.numeroRobotsEncuentro + datosTurno.numeroRobotsConstruidos + datosTurno.numeroRobotsPerdidosExpedicion + datosTurno.numeroRobotsPerdidosInfiltracion;
+        int _numeroRobotsOrdenPublicoResultante = _numeroRobotsResultante - _numeroRobotsExpedicionResultante;
+
+        int _numeroRecursosResultante = datosTurno.numeroRecursosInicial + datosTurno.numeroRecursosEncuentro + datosTurno.recursosRecuperadosExpedicion + datosTurno.numeroRecursosInvertidosConstruccion;
+        int _numeroComidaResultante = datosTurno.numeroComidaInicial + datosTurno.numeroComidaEncuentro + datosTurno.numeroComidaConsumida + datosTurno.numeroComidaConstruida;
+        int _numeroCambiaformasResultante = datosTurno.numeroCambiaformasInicial + datosTurno.numeroCambiaformasRecuperadosExpedicion + datosTurno.numeroPoblacionPerdidaInfiltracion;
+        int _numeroTurnoResultante = datosTurno.numeroTurno+1;
+
+        bool _flagExpedicionActivaResultante = datosTurno.flagExpedicionActiva;
+        int _turnosDuracionExpedicionActivaResultante = datosTurno.turnosDuracionExpedicionActiva;
+        int _turnosRestantesExpedicionResultante = datosTurno.turnosRestantesExpedicion;
+
+        datosTurno.ResetDatosTurno(datosTurnoIniciales);
+
+        datosTurno.nivelMejoraRoboticaInicial = _nivelMejoraRoboticaResultante;
+        datosTurno.nivelMejoraAlimentoInicial = _nivelMejoraAlimentoResultante;
+        datosTurno.nivelMejoraDefensaInicial = _nivelMejoraDefensaResultante;
+
+        datosTurno.numeroPoblacionInicial = _numeroPoblacionResultante;
+
+        datosTurno.numeroRobotsInicio = _numeroRobotsResultante;
+        datosTurno.numeroRobotsExpedicion = _numeroRobotsExpedicionResultante;
+        datosTurno.numeroRobotsOrdenPublico = _numeroRobotsOrdenPublicoResultante;
+
+        datosTurno.numeroRecursosInicial = _numeroRecursosResultante;
+        datosTurno.numeroComidaInicial = _numeroComidaResultante;
+        datosTurno.numeroCambiaformasInicial = _numeroCambiaformasResultante;
+
+        datosTurno.numeroTurno = _numeroTurnoResultante;
+
+        datosTurno.flagExpedicionActiva = _flagExpedicionActivaResultante;
+        datosTurno.turnosDuracionExpedicionActiva = _turnosDuracionExpedicionActivaResultante;
+        datosTurno.turnosRestantesExpedicion = _turnosRestantesExpedicionResultante;
+    }
+
+    void ConfirmaTurno()
+    {
+
+    }
+
+    void ConsultaDecisiones()
     {
 
     }
 
     public void PasaTurno()
     {
-
+        ConfirmaTurno();
+        CalculaTurno();
+        ConsultaDecisiones();
+        ProcesaDatosTurno();
     }
     #endregion GestionTurnos
 }

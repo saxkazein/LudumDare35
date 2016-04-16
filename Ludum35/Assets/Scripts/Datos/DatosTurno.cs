@@ -15,6 +15,7 @@ public class DatosTurno
     public float bonificadorResistenciaRobot;
 	public float bonificadorTorretas;
 	public float bonificadorInfiltracion;
+
     public int numeroRecursosInicial;
     public int numeroConstruccionElegida;
     public int numeroRecursosInvertidosConstruccion;
@@ -23,23 +24,30 @@ public class DatosTurno
     public int nivelMejoraRoboticaResultante;
     public int nivelMejoraAlimentoResultante;
     public int nivelMejoraDefensaResultante;
+
+    public int numeroCambiaformasInicial;
+    public int numeroRobotsInicio;
     public int numeroComidaInicial;
     public int numeroComidaConsumida;
     public int numeroMuertesPorHambre;
+
     public bool flagExpedicionActiva;
     public int turnosDuracionExpedicionActiva;
     public int turnosRestantesExpedicion;
-    public int tipoEncuentro;
-    public int numeroRobotsInicio;
     public int numeroRobotsExpedicion;
     public int recursosRecuperadosExpedicion;
     public int poblacionRecuperadaExpedicion;
+    public int numeroCambiaformasRecuperadosExpedicion;
     public int numeroRobotsPerdidosExpedicion;
-    public int numeroCambiaformasInicial;
+
     public int numeroRobotsPerdidosInfiltracion;
     public int numeroRecursosPerdidosInfiltracion;
+    public int numeroPoblacionPerdidaInfiltracion;
+
     public int numeroTurno;
     public int numeroPoblacionPerdidaAtaque;
+
+    public int tipoEncuentro;
     public int numeroPoblacionEncuentro;
     public int numeroRobotsEncuentro;
     public int numeroRecursosEncuentro;
@@ -58,6 +66,9 @@ public class DatosTurno
     	bonificadorResistenciaRobot = datosTurnoIniciales.bonificadorResistenciaRobot;
 		bonificadorTorretas = datosTurnoIniciales.bonificadorTorretas;
 		bonificadorInfiltracion = datosTurnoIniciales.bonificadorInfiltracion;
+
+    	numeroCambiaformasInicial = datosTurnoIniciales.numeroCambiaformasInicial;
+    	numeroRobotsInicio = datosTurnoIniciales.numeroRobotsInicio;
     	numeroRecursosInicial = datosTurnoIniciales.numeroRecursosInicial;
     	numeroConstruccionElegida = datosTurnoIniciales.numeroConstruccionElegida;
     	numeroRecursosInvertidosConstruccion = datosTurnoIniciales.numeroRecursosInvertidosConstruccion;
@@ -66,23 +77,28 @@ public class DatosTurno
     	nivelMejoraRoboticaResultante = datosTurnoIniciales.nivelMejoraRoboticaResultante;
     	nivelMejoraAlimentoResultante = datosTurnoIniciales.nivelMejoraAlimentoResultante;
     	nivelMejoraDefensaResultante = datosTurnoIniciales.nivelMejoraDefensaResultante;
+
     	numeroComidaInicial = datosTurnoIniciales.numeroComidaInicial;
     	numeroComidaConsumida = datosTurnoIniciales.numeroComidaConsumida;
     	numeroMuertesPorHambre = datosTurnoIniciales.numeroMuertesPorHambre;
+
     	flagExpedicionActiva = datosTurnoIniciales.flagExpedicionActiva;
     	turnosDuracionExpedicionActiva = datosTurnoIniciales.turnosDuracionExpedicionActiva;
     	turnosRestantesExpedicion = datosTurnoIniciales.turnosRestantesExpedicion;
-    	tipoEncuentro = datosTurnoIniciales.tipoEncuentro;
-    	numeroRobotsInicio = datosTurnoIniciales.numeroRobotsInicio;
     	numeroRobotsExpedicion = datosTurnoIniciales.numeroRobotsExpedicion;
     	recursosRecuperadosExpedicion = datosTurnoIniciales.recursosRecuperadosExpedicion;
     	poblacionRecuperadaExpedicion = datosTurnoIniciales.poblacionRecuperadaExpedicion;
+        numeroCambiaformasRecuperadosExpedicion = datosTurnoIniciales.numeroCambiaformasRecuperadosExpedicion;
     	numeroRobotsPerdidosExpedicion = datosTurnoIniciales.numeroRobotsPerdidosExpedicion;
-    	numeroCambiaformasInicial = datosTurnoIniciales.numeroCambiaformasInicial;
+
     	numeroRobotsPerdidosInfiltracion = datosTurnoIniciales.numeroRobotsPerdidosInfiltracion;
     	numeroRecursosPerdidosInfiltracion = datosTurnoIniciales.numeroRecursosPerdidosInfiltracion;
+    	numeroPoblacionPerdidaInfiltracion = datosTurnoIniciales.numeroPoblacionPerdidaInfiltracion;
+
     	numeroTurno = datosTurnoIniciales.numeroTurno;
     	numeroPoblacionPerdidaAtaque = datosTurnoIniciales.numeroPoblacionPerdidaAtaque;
+
+    	tipoEncuentro = datosTurnoIniciales.tipoEncuentro;
     	numeroPoblacionEncuentro = datosTurnoIniciales.numeroPoblacionEncuentro;
     	numeroRobotsEncuentro = datosTurnoIniciales.numeroRobotsEncuentro;
     	numeroRecursosEncuentro = datosTurnoIniciales.numeroRecursosEncuentro;
