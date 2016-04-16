@@ -5,9 +5,23 @@ using System.Collections;
 
 public class ModuloDefensa {
 
+    private int bonificadorTorreta;
+    private int numeroTurno;
 
-    void calculaTurno(DatosTurno datosTurno)
+    private int numeroPoblacionPerdidaAtaque;
+
+    private int ataqueBaseCambiaforma;
+
+    void calculaEvento(DatosTurno datosTurno)
     {
+
+        bonificadorTorreta = datosTurno.bonificadorTorretas;
+        numeroTurno = datosTurno.numeroTurno;
+
+        ataqueBaseCambiaforma = core.Configuracion.danoBasePatos;
+
+
+
         
 
     }
