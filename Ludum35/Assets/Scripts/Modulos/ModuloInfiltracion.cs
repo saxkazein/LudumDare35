@@ -56,8 +56,8 @@ public class ModuloInfiltracion  {
 
 		if(infiltracionValorProbabilidad<=probabilidadInfiltracion){				// Si la infiltracioń tiene lugar
 
-			if(datosTurno.numeroCambiaformas > (datosTurno.numeroRobotsOrdenPublico*enemigosMuertosPorRobot)){				// Si el número de enemigos excede la capacidad de defensa de los robots
-				datosTurno.numeroRecursosPerdidosInfiltracion = Mathf.RoundToInt((datosTurno.numeroCambiaformas - (datosTurno.numeroRobotsOrdenPublico*enemigosMuertosPorRobot))*perdidasPorEnemigo);
+			if(datosTurno.numeroCambiaformasInicial > (datosTurno.numeroRobotsOrdenPublico*enemigosMuertosPorRobot)){				// Si el número de enemigos excede la capacidad de defensa de los robots
+				datosTurno.numeroRecursosPerdidosInfiltracion = Mathf.RoundToInt((datosTurno.numeroCambiaformasInicial - (datosTurno.numeroRobotsOrdenPublico*enemigosMuertosPorRobot))*perdidasPorEnemigo);
 			}
 				
 			//Cálculo de la posibilidad de muerte de robot
@@ -65,7 +65,7 @@ public class ModuloInfiltracion  {
 			int numeroMaximoRobotsMuertos = Mathf.RoundToInt(datosTurno.numeroRobotsOrdenPublico*maximoPorcentajeRobotsMuertos);
 			for (int i = 0; i < numeroMaximoRobotsMuertos; i++) {						// Efectuamos las comprobaciones para el % de los robots que se quiera
 				muerteRobot = Random.Range(0F,1F);
-				if (muerteRobot < (probabilidadRobotMuerto+datosTurno.bonificadorResistenciaRobot)) {			// Si tiene que morir un robot
+				if (muerteRobot < (probabilidadRobotMuerto-datosTurno.bonificadorResistenciaRobot)) {			// Si tiene que morir un robot
 					datosTurno.numeroRobotsOrdenPublico--;
 				}
 			}

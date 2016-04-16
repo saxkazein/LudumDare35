@@ -17,6 +17,7 @@ public class ModuloExpedicion {
 	private float maximoPorcentajeMuertesRobots;
 
 
+
 	/**
 	 *  Método para la inicialización del módulo
 	 */ 
@@ -36,15 +37,42 @@ public class ModuloExpedicion {
 	 */ 
 	public void calcularTurno(ref DatosTurno datosTurno){
 		if(datosTurno.flagExpedicionActiva==true){							// Si hay expedición activa
-
-
-
-
-			datosTurno.turnosDuracionExpedicionActiva--;
-			if (datosTurno.turnosDuracionExpedicionActiva == 0) {			// Si se ha terminado la expedición
+			
+			if (datosTurno.turnosRestantesExpedicion == 0) {			// Si se ha terminado la expedición
 				datosTurno.flagExpedicionActiva = false;
-			}
+
+				// Se calcula la muerte de los robots
+				float muerteRobot = 0;
+				for (int i=0;i<Mathf.RoundToInt(datosTurno.numeroRobotsExpedicion*maximoPorcentajeMuertesRobots);i++) {
+					muerteRobot = Random.Range (0F, 1F);
+					if(muerteRobot < posibilidadMuerteRobot-datosTurno.bonificadorResistenciaRobot)
+						datosTurno.numeroRobotsPerdidosExpedicion++;
+				}
+
+
+				for(int i=0;i<datosTurno.numeroRobotsExpedicion-datosTurno.numeroRobotsPerdidosExpedicion;i++){
+					
+					// Número de recursos recuperados
+					datosTurno.recursosRecuperadosExpedicion += Random.Range(0,numeroMaximoRecursoRecuperado);	
+
+					// Número de población reclutada
+					int ciudadanosReclutados = Random.Range(0,numeroMaximoCiudadanosRecuperados);
+					datosTurno.poblacionRecuperadaExpedicion += ciudadanosReclutados;
+
+					// Número de cambiaformas reclutados
+					for(int j=0;j<Mathf.RoundToInt(ciudadanosReclutados*maximoPorcentajeCambiaformas);j++){
+						if (Random.Range (0F, 1F) < posibilidadCambiaformas) {
+							datosTurno.numeroCambiaformasInicial++;
+						}
+					}
+				}
+
+
 		}
+
+		datosTurno.turnosRestantesExpedicion--;
 	}
 		
+}
+
 }
