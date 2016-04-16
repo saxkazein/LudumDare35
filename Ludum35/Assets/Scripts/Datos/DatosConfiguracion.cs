@@ -9,14 +9,17 @@ public class DatosConfiguracion {
 	public float aumentoBonificacionMejoraTorreta;
 	public float aumentoBonificacionMejoraAlimentos;
 	public float aumentoBonificacionCostePorPoblacion;
+
 	public float ciudadanosPorAlimentoTurno;
 	public float limiteInferiorPerdidaPorHambre;
 	public float limiteSuperiorPerdidaPorHambre;
+
 	public float danoBasePatos;
 	public float aumentoDanoPatosPorTurno;
 	public float varianzaDanoPatos;
-	public float defensaPorTorreta;
+	public float defensaTorreta;
 	public float porcentajeDanoPoblacion;
+
 	public float recursosBasePorExpedicion;
 	public float poblacionBasePorExpedicion;
 	public float probabilidadInfiltradoExpedicion;
@@ -24,6 +27,7 @@ public class DatosConfiguracion {
 	public float probabilidadBasePerderRobotExpedicion;
 	public float maximoPorcentajePerdidasRobotExpedicion;
 	public float aumentoRecompensaExpedicionPorTurnos;
+
 	public float poblacionCubiertaPorRobot;
 	public float probabilidadBaseInfiltracion;
 	public float aumentoProbabilidadInfiltracion;
@@ -31,6 +35,7 @@ public class DatosConfiguracion {
 	public float probabilidadBasePerderRobotInfiltracion;
 	public float maximoPorcentajePerdidasRobotInfiltracion;
 	public float porcentajePerdidasPorCambiaformas;
+
 	public float costeBaseAlimento;
 	public float costeBaseRobot;
 	public float[] costeBaseMejoraRobot;

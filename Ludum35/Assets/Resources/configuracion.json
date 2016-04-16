@@ -1,0 +1,40 @@
+{
+  "aumentoBonificacionMejoraResistenciaRobots": 0,
+  "aumentoBonificacionMejoraCosteRobots": 0,
+  "aumentoBonificacionMejoraTorreta": 0,
+  "aumentoBonificacionMejoraAlimentos": 0,
+  "aumentoBonificacionCostePorPoblacion": 0,
+
+  "ciudadanosPorAlimentoTurno": 0,
+  "limiteInferiorPerdidaPorHambre": 0,
+  "limiteSuperiorPerdidaPorHambre": 0,
+
+  "danoBasePatos": 0,
+  "aumentoDanoPatosPorTurno":  0,
+  "varianzaDanoPatos":  0,
+  "defensaTorreta": 0,
+  "porcentajeDanoPoblacion": 0,
+
+  "recursosBasePorExpedicion": 0,
+  "poblacionBasePorExpedicion": 0,
+  "probabilidadInfiltradoExpedicion": 0,
+  "maximoPorcentajeInfiltradoExpedicion": 0,
+  "probabilidadBasePerderRobotExpedicion": 0,
+  "maximoPorcentajePerdidasRobotExpedicion": 0,
+  "aumentoRecompensaExpedicionPorTurnos": 0,
+
+  "poblacionCubiertaPorRobot": 0,
+  "probabilidadBaseInfiltracion": 0,
+  "aumentoProbabilidadInfiltracion": 0,
+  "cambiaformasPorRobot": 0,
+  "probabilidadBasePerderRobotInfiltracion": 0,
+  "maximoPorcentajePerdidasRobotInfiltracion": 0,
+  "porcentajePerdidasPorCambiaformas": 0,
+
+  "costeBaseAlimento": 0,
+  "costeBaseRobot": 0,
+  "costeBaseMejoraRobot": [0],
+  "costeBaseMejoraTorreta": [0],
+  "costeBaseMejoraAlimento": [0],
+  "costeBaseCohete":  0
+}
