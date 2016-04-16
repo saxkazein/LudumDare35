@@ -2,14 +2,12 @@
 
 [System.Serializable]
 public class DatosConfiguracion {
-
 	public float aumentoBonificacionMejoraResistenciaRobots;
 	public float aumentoBonificacionMejoraCosteRobots;
 	public float aumentoBonificacionMejoraTorreta;
 	public float aumentoBonificacionMejoraAlimentos;
 	public float aumentoBonificacionCostePorPoblacion;
 
-	
 	public float multiplicadorCostePorPoblacion;
     public float limiteInferiorMultiplicadorCostePorPoblacion;
 

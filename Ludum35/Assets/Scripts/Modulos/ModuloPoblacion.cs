@@ -12,7 +12,7 @@ public class ModuloPoblacion  {
 
 
     //Cálculos referentes al control de población por turno
-    void calculaTurno(ref DatosTurno datosTurno) {
+    public void calculaTurno(ref DatosTurno datosTurno) {
 
         //Población, bonificador y comida inicial del turno actual
         poblacionInicial = datosTurno.numeroPoblacionInicial;

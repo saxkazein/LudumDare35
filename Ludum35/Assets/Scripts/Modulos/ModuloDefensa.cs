@@ -18,7 +18,7 @@ public class ModuloDefensa {
 
 
     //Cálculos referentes a un evento de ataque por parte de los patos
-    void calculaEvento(ref DatosTurno datosTurno)
+    public void calculaEvento(ref DatosTurno datosTurno)
     {
 
 
