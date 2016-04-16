@@ -33,7 +33,7 @@ public class DatosTurnoIniciales{
     public int recursosRecuperadosExpedicion;
     public int poblacionRecuperadaExpedicion;
     public int numeroRobotsPerdidosExpedicion;
-    public int numeroCambiaformas;
+    public int numeroCambiaformasInicial;
     public int numeroRobotsPerdidosInfiltracion;
     public int numeroRecursosPerdidosInfiltracion;
     public int numeroTurno;

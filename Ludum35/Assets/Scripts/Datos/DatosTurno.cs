@@ -35,7 +35,7 @@ public class DatosTurno
     public int recursosRecuperadosExpedicion;
     public int poblacionRecuperadaExpedicion;
     public int numeroRobotsPerdidosExpedicion;
-    public int numeroCambiaformas;
+    public int numeroCambiaformasInicial;
     public int numeroRobotsPerdidosInfiltracion;
     public int numeroRecursosPerdidosInfiltracion;
     public int numeroTurno;
@@ -78,7 +78,7 @@ public class DatosTurno
     	recursosRecuperadosExpedicion = datosTurnoIniciales.recursosRecuperadosExpedicion;
     	poblacionRecuperadaExpedicion = datosTurnoIniciales.poblacionRecuperadaExpedicion;
     	numeroRobotsPerdidosExpedicion = datosTurnoIniciales.numeroRobotsPerdidosExpedicion;
-    	numeroCambiaformas = datosTurnoIniciales.numeroCambiaformas;
+    	numeroCambiaformasInicial = datosTurnoIniciales.numeroCambiaformasInicial;
     	numeroRobotsPerdidosInfiltracion = datosTurnoIniciales.numeroRobotsPerdidosInfiltracion;
     	numeroRecursosPerdidosInfiltracion = datosTurnoIniciales.numeroRecursosPerdidosInfiltracion;
     	numeroTurno = datosTurnoIniciales.numeroTurno;
