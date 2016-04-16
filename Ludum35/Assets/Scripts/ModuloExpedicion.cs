@@ -8,34 +8,40 @@
 public class ModuloExpedicion {
 
 
-	private int numeroRobotsExpedicion;
-	private float bonificadorResistenciaRobot;
-	private int turnosDuracionExpedicionActiva;
-	private int recursosRecuperadosExpedicion;
-	private int poblacionRecuperadaExpedicion;
-	private int numeroRobotsPerdidosExpedicion;
-	private bool flagExpedicionActiva;
+	private int numeroMaximoRecursoRecuperado;
+	private int numeroMaximoCiudadanosRecuperados;
+	private float posibilidadCambiaformas;
+	private float maximoPorcentajeCambiaformas;
+	private float posibilidadMuerteRobot;
+	private float maximoPorcentajeMuertesRobots;
 
 
 	/**
 	 *  Método para la inicialización del módulo
 	 */ 
-	public void Start(){
+	public void Start(DatosConfiguracion datosConfiguracion){
+		numeroMaximoRecursoRecuperado = datosConfiguracion.recursosBasePorExpedicion;
+		numeroMaximoCiudadanosRecuperados = datosConfiguracion.poblacionBasePorExpedicion;
+		posibilidadCambiaformas = datosConfiguracion.probabilidadInfiltradoExpedicion;
+		maximoPorcentajeCambiaformas = datosConfiguracion.maximoPorcentajeInfiltradoExpedicion;
+		posibilidadMuerteRobot = datosConfiguracion.probabilidadBasePerderRobotExpedicion;
+		maximoPorcentajeMuertesRobots = datosConfiguracion.maximoPorcentajePerdidasRobotExpedicion;
+		
 	}
 
 
 	/**
 	 * Módulo para realizar los cálculos necesarios para el cambio de turno
 	 */ 
-	public void calcularTurno(DatosConfiguracion datosConfig){
-		if(flagExpedicionActiva==true){							// Si hay expedición activa
+	public void calcularTurno(ref DatosTurno datosTurno){
+		if(datosTurno.flagExpedicionActiva==true){							// Si hay expedición activa
 
 
 
 
-			turnosDuracionExpedicionActiva--;
-			if (turnosDuracionExpedicionActiva == 0) {			// Si se ha terminado la expedición
-				flagExpedicionActiva = false;
+			datosTurno.turnosDuracionExpedicionActiva--;
+			if (datosTurno.turnosDuracionExpedicionActiva == 0) {			// Si se ha terminado la expedición
+				datosTurno.flagExpedicionActiva = false;
 			}
 		}
 	}
