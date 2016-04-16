@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ModuloDefensa : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+public class ModuloDefensa {
+
+
+    void calculaTurno(DatosTurno datosTurno)
+    {
+        
+
+    }
+
 }
