@@ -11,12 +11,12 @@ public class DatosTurno
     public int nivelMejoraDefensaInicial;
     public int numeroPoblacionInicial;
     public int numeroRobotsOrdenPublico;
-    public int bonificadorConstruccionRobots;
-    public int bonificadorConstruccionPoblacion;
-    public int bonificadorAlimentos;
-    public int bonificadorResistenciaRobot;
-    public int bonificadorTorretas;
-    public int bonificadorInfiltracion;
+	public float bonificadorConstruccionRobots;
+	public float bonificadorConstruccionPoblacion;
+	public float bonificadorAlimentos;
+    public float bonificadorResistenciaRobot;
+	public float bonificadorTorretas;
+	public float bonificadorInfiltracion;
     public int numeroRecursosInicial;
     public int numeroConstruccionElegida;
     public int numeroRecursosInvertidosConstruccion;
