@@ -3,7 +3,9 @@
   "aumentoBonificacionMejoraCosteRobots": 0,
   "aumentoBonificacionMejoraTorreta": 0,
   "aumentoBonificacionMejoraAlimentos": 0,
-  "aumentoBonificacionCostePorPoblacion": 0,
+
+  "multiplicadorCostePorPoblacion": 0,
+  "limiteInferiorMultiplicadorCostePorPoblacion": 0,
 
   "ciudadanosPorAlimentoTurno": 0,
   "limiteInferiorPerdidaPorHambre": 0,
