@@ -8,7 +8,7 @@ public class Core : Singleton<Core>
     public DatosConfiguracion configuracion;
 
     private DatosTurnoIniciales datosTurnoIniciales;
-    private DatosTurno datosTurno;
+    public DatosTurno datosTurno;
 
     private string pathArchivoConfiguracion = "configuracion";
     private string pathArchivoDatosIniciales = "datosIniciales";
@@ -139,6 +139,14 @@ public class Core : Singleton<Core>
     }
 
     /*
+     * Muestra en consola los resultados de los diferentes sucesos del turno
+     */
+    void InformeTurno()
+    {
+
+    }
+
+    /*
      * Inicia el proceso de pasar turno cuando el jugador pulsa el botón en la interfaz
      */
     public void PasaTurno()
@@ -146,6 +154,7 @@ public class Core : Singleton<Core>
         ConfirmaTurno();
         CalculaTurno();
         ConsultaDecisiones();
+        InformeTurno();
         ProcesaDatosTurno();
     }
     #endregion GestionTurnos

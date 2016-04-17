@@ -62,6 +62,7 @@ public class DatosTurno
     public int precioActualMejoraRobots;
     public int precioActualMejoraAlimentos;
     public int precioActualCohete;
+
     public void ResetDatosTurno(DatosTurnoIniciales datosTurnoIniciales)
     {
         nivelMejoraRoboticaInicial = datosTurnoIniciales.nivelMejoraRoboticaInicial; 
