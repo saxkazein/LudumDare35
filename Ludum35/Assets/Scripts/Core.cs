@@ -157,5 +157,22 @@ public class Core : Singleton<Core>
         InformeTurno();
         ProcesaDatosTurno();
     }
+
+    public void CalculaExpedicion()
+    {
+
+    }
+    public void CalculaInfiltracion()
+    {
+
+    }
+    public void CalculaAtaque()
+    {
+
+    }
+    public void CalculaEvento(int tipo)
+    {
+
+    }
     #endregion GestionTurnos
 }

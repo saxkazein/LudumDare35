@@ -48,4 +48,6 @@ public class DatosConfiguracion {
     public int robotsIniciales;
     public int recursosIniciales;
     public int comidaInicial;
+
+    public float probabilidadAtaquePatos;
 }

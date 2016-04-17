@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ModuloConstruccion {
 
-	public void calcularTurno(ref DatosTurno datosTurno) {
+	public void calculaTurno(ref DatosTurno datosTurno) {
 
         int numComidaConstruida = 0;
         int numRobotsConstruidos = 0;

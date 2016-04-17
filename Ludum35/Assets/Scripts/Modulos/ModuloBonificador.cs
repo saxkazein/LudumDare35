@@ -54,7 +54,7 @@ public class ModuloBonificador {
     /**
 	 * Módulo que realiza los cálculos necesarios para las bonificaciones
 	 */
-    public void calcularTurno(DatosTurno datosTurno) {
+    public void calcularTurno(ref DatosTurno datosTurno) {
         float bonificadorAlimentos = 1 - datosTurno.nivelMejoraAlimentoInicial * aumentoBonificacionMejoraAlimentos;
         float bonificadorResistenciaRobot = datosTurno.nivelMejoraRoboticaInicial * aumentoBonificacionResistenciaRobots;
         float bonificadorDefensa = datosTurno.nivelMejoraDefensaInicial * aumentoBonificacionMejoraTorreta;
