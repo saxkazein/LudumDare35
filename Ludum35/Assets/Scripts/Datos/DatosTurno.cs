@@ -4,12 +4,17 @@ using System.Collections;
 //Información básica de cada turno
 public class DatosTurno
 {
+    public int numeroRecursosInicial;
+    public int numeroCambiaformasInicial;
+    public int numeroRobotsInicio;
+    public int numeroComidaInicial;
+    public int numeroPoblacionInicial;
+
     public int nivelMejoraRoboticaInicial;
     public int nivelMejoraAlimentoInicial;
     public int nivelMejoraDefensaInicial;
     public int nivelMejoraCoheteInicial;
 
-    public int numeroPoblacionInicial;
     public int numeroRobotsOrdenPublico;
 	public float bonificadorConstruccionRobots;
 	public float bonificadorConstruccionPoblacion;
@@ -18,19 +23,17 @@ public class DatosTurno
 	public float bonificadorTorretas;
 	public float bonificadorInfiltracion;
 
-    public int numeroRecursosInicial;
     public int numeroConstruccionElegida;
     public int numeroRecursosInvertidosConstruccion;
     public int numeroComidaConstruida;
     public int numeroRobotsConstruidos;
+
     public int nivelMejoraRoboticaResultante;
     public int nivelMejoraAlimentoResultante;
     public int nivelMejoraDefensaResultante;
     public int nivelMejoraCoheteResultante;
 
-    public int numeroCambiaformasInicial;
-    public int numeroRobotsInicio;
-    public int numeroComidaInicial;
+
     public int numeroComidaConsumida;
     public int numeroMuertesPorHambre;
 
@@ -82,10 +85,12 @@ public class DatosTurno
     	numeroCambiaformasInicial = datosTurnoIniciales.numeroCambiaformasInicial;
     	numeroRobotsInicio = datosTurnoIniciales.numeroRobotsInicio;
     	numeroRecursosInicial = datosTurnoIniciales.numeroRecursosInicial;
+
     	numeroConstruccionElegida = datosTurnoIniciales.numeroConstruccionElegida;
     	numeroRecursosInvertidosConstruccion = datosTurnoIniciales.numeroRecursosInvertidosConstruccion;
     	numeroComidaConstruida = datosTurnoIniciales.numeroComidaConstruida;
     	numeroRobotsConstruidos = datosTurnoIniciales.numeroRobotsConstruidos;
+
     	nivelMejoraRoboticaResultante = datosTurnoIniciales.nivelMejoraRoboticaResultante;
     	nivelMejoraAlimentoResultante = datosTurnoIniciales.nivelMejoraAlimentoResultante;
     	nivelMejoraDefensaResultante = datosTurnoIniciales.nivelMejoraDefensaResultante;
