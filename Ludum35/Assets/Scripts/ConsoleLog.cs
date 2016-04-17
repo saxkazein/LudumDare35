@@ -5,28 +5,44 @@ using System.Collections.Generic;
 
 public class ConsoleLog : MonoBehaviour {
 
-    private int i;
+    private int i;      //Variable de control para el apilamiento de logs
     RectTransform rectTransform;    
 
     private Queue<string> logs;
 
-    public int logsMinimos; //Numero de logs a imprimir antes de que comiencen a apilarse
-    public int logsMaximos; //Máximo número de logs almacenados en consola
-    public float offsetDeCrecimiento; //Razón de crecimiento del RectTransform que aloja el texto
+    //Modificable desde editor
+    private int logsMinimos; //Numero de logs a imprimir antes de que comiencen a apilarse
+    private int logsMaximos; //Máximo número de logs almacenados en consola
+    private float offsetDeCrecimiento; //Razón de crecimiento del RectTransform que aloja el texto
 
 
     void Start() {
+
         i = 0;
-        logsMinimos = 1;
-        logsMaximos = 25;
-        offsetDeCrecimiento = 32.0f;
+
         rectTransform = this.GetComponent<RectTransform>();
         logs = new Queue<string>();
+
+        GameObject consola = GameObject.Find("Consola");
+
+        consola.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        consola.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width/2, Screen.height/4);
+
+
+        //Nada de lo siguiente me gusta
+        this.GetComponent<Text>().fontSize = Mathf.RoundToInt((Screen.width * 11)/1280);       
+
+        logsMinimos = (Screen.width * 4) / 1280;
+        logsMaximos = (Screen.width * 24) / 1280;
+        offsetDeCrecimiento = (Screen.width * 28) / 1280;
+    
+        //Hasta aqui
+
     }
 
 
     //Imprime en la consola principal del juego logs de eventos y sucesos. 
-    //IMPORTANTE: TODOS LOS LOS TIENEN QUE OCUPAR DOS LINEAS COMO MÍNIMO Y COMO MÁXIMO PARA QUE SE VISUALICE CORRECTAMENTE.
+    //IMPORTANTE: TODOS LOS LOS TIENEN QUE OCUPAR UNA LINEAS COMO MÍNIMO Y COMO MÁXIMO PARA QUE SE VISUALICE CORRECTAMENTE.
     void imprimirEnConsola(string toPrint) {
 
        
@@ -61,7 +77,7 @@ public class ConsoleLog : MonoBehaviour {
             
     }
 
-    public int x = 0;
+    private int x;
 
     void Update()
     {
