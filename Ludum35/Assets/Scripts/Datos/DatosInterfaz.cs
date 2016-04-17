@@ -9,10 +9,8 @@ public class DatosInterfaz  {
     public int alimentosNuevos;
 
     //Modulo mejoras
-    public int nivelMejoraDefensaAlcanzado;
-    public int nivelMejoraAlimentoAlcanzado;
-    public int nivelMejoraRobotsAlcanzado;
-    public int nivelMejoraCoheteAlcanzado;
+    public int accionTomada;
+    public bool seIniciaExpedicion;
 
     //Modulo robots
     public int robotsEnBunker;
@@ -24,10 +22,8 @@ public class DatosInterfaz  {
         robotsNuevos = 0;
         alimentosNuevos = 0;
 
-        nivelMejoraAlimentoAlcanzado = 0;
-        nivelMejoraCoheteAlcanzado = 0;
-        nivelMejoraDefensaAlcanzado = 0;
-        nivelMejoraRobotsAlcanzado = 0;
+        accionTomada = -1;
+        seIniciaExpedicion = false;
 
         robotsEnBunker = 0;
         robotsAExpedicion = 0;
