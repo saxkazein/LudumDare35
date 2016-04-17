@@ -46,7 +46,7 @@ public class UIController : MonoBehaviour {
     private int nivelDeMejoraRobotsActual;
     private int nivelDeMejoraCoheteActual;
 
-    private int robotsEnBunker;
+    private int robotsEnBunker, robotsEnBunkerAux;
     private int robotsAExpedicion;
         //Auxiliares
     private int nivelMejoraDefensaAux;
@@ -58,6 +58,17 @@ public class UIController : MonoBehaviour {
     private bool haSidoAccionTomada = false;
     private int accionTomada = -1;
     private bool seIniciaExpedicion = false;
+
+    private int recursosActuales;
+
+    private bool expedicionActiva;
+
+    private int numNivelesMejoraAlimento;
+    private int numNivelesMejoraRobots;
+    private int numNivelesMejoraCohete;
+    private int numNivelesMejoraDefensa;
+
+
 
     void Start()
     {
@@ -89,7 +100,7 @@ public class UIController : MonoBehaviour {
     textoAumentarRobots = GameObject.Find("TextoAumentarRobots").GetComponent<Text>();
     textoAumentarAlimentos = GameObject.Find("TextoAumentarComida").GetComponent<Text>();
 
-  
+    
         
 
     }
@@ -97,6 +108,8 @@ public class UIController : MonoBehaviour {
     public void actualizaTurno(DatosTurno datosTurno) { 
         
         //Actualizamos todos los valores que nos pasan
+        expedicionActiva = datosTurno.flagExpedicionActiva;
+
 
         //Panel superior
         textoRecursos.text = datosTurno.numeroRecursosInicial.ToString();
@@ -106,8 +119,16 @@ public class UIController : MonoBehaviour {
         //Modulo robots
         textoNumBunker.text = datosTurno.numeroRobotsOrdenPublico.ToString();
         textoNumExpedicion.text = datosTurno.numeroRobotsExpedicion.ToString();
-        textoNumEstacionesRestantes.text = datosTurno.turnosRestantesExpedicion.ToString(); //No mostrar si 0
 
+        if (expedicionActiva)
+        {
+            textoNumEstacionesRestantes.gameObject.SetActive(true);
+            textoNumEstacionesRestantes.text = datosTurno.turnosRestantesExpedicion.ToString(); //No mostrar si 0
+        }
+        else {
+            textoNumEstacionesRestantes.gameObject.SetActive(false);
+            
+        }
         //Modulo mejoras
         int nivelMejoraRoboticaInicialAux = datosTurno.nivelMejoraRoboticaInicial + 1;
         int nivelMejoraDefensaInicialAux = datosTurno.nivelMejoraDefensaInicial + 1;
@@ -143,7 +164,18 @@ public class UIController : MonoBehaviour {
         nivelMejoraCoheteAux = nivelDeMejoraCoheteActual;
 
         robotsEnBunker = datosTurno.numeroRobotsInicio;
+        robotsEnBunkerAux = robotsEnBunker;
+
         robotsAExpedicion = 0;
+
+        recursosActuales = datosTurno.numeroRecursosInicial;
+
+        numNivelesMejoraAlimento = Core.Instance.configuracion.costeBaseMejoraAlimento.Length;
+        numNivelesMejoraCohete = Core.Instance.configuracion.costeBaseCohete.Length;
+        numNivelesMejoraDefensa = Core.Instance.configuracion.costeBaseMejoraTorreta.Length;
+        numNivelesMejoraRobots = Core.Instance.configuracion.costeBaseMejoraRobot.Length;
+
+
         
     }
 
@@ -153,23 +185,32 @@ public class UIController : MonoBehaviour {
 
         if (!haSidoAccionTomada || accionTomada == 0)
         {
-            haSidoAccionTomada = true;
-            accionTomada = 0;
 
-            numeroComidaAConstruir++;
-            textoAumentarAlimentos.text = numeroComidaAConstruir.ToString();
-        }
+            if (recursosActuales >= int.Parse(textoTotalComidaAumentar.text))
+            {
+
+                haSidoAccionTomada = true;
+                accionTomada = 0;
+
+                numeroComidaAConstruir++;
+                textoAumentarAlimentos.text = numeroComidaAConstruir.ToString();
+            }
+            }
     }
 
     public void aumentarRobots() {
 
         if (!haSidoAccionTomada || accionTomada == 1)
         {
-            haSidoAccionTomada = true;
-            accionTomada = 1;
+            if (recursosActuales >= int.Parse(textoTotalRobotsAumentar.text))
+            {
 
-            numeroRobotsAContruir++;
-            textoAumentarRobots.text = numeroRobotsAContruir.ToString();
+                haSidoAccionTomada = true;
+                accionTomada = 1;
+
+                numeroRobotsAContruir++;
+                textoAumentarRobots.text = numeroRobotsAContruir.ToString();
+            }
         }
     }
 
@@ -177,82 +218,138 @@ public class UIController : MonoBehaviour {
 
     public void resetConstruccion()
     {
-        haSidoAccionTomada = false;
-        accionTomada = -1;
 
-        numeroComidaAConstruir = 0;
-        numeroRobotsAContruir = 0;
+        if (haSidoAccionTomada && (accionTomada == 0 || accionTomada == 1))
+        {
 
-        textoAumentarRobots.text = "+1";
-        textoAumentarAlimentos.text = "+1";
+            haSidoAccionTomada = false;
+            accionTomada = -1;
+
+            numeroComidaAConstruir = 0;
+            numeroRobotsAContruir = 0;
+
+            textoAumentarRobots.text = "+1";
+            textoAumentarAlimentos.text = "+1";
+        }
     }
 
     public void mejoraComida()
     {
 
-        if (!haSidoAccionTomada || accionTomada == 2)
+        if (!haSidoAccionTomada)
         {
-            haSidoAccionTomada = true;
-            accionTomada = 2;
+            if (recursosActuales >= int.Parse(textoTotalComidaMejora.text))
+            {
+                if (nivelMejoraAlimentosAux == numNivelesMejoraAlimento)
+                {
+                    textoComidaMejora.text = "Max level";
+
+                }
+                else
+                {
+
+                    haSidoAccionTomada = true;
+                    accionTomada = 2;
 
 
-            nivelMejoraAlimentosAux++;
-            textoComidaMejora.text = "Lv." + nivelMejoraAlimentosAux.ToString();
-        }
+                    nivelMejoraAlimentosAux++;
+                    textoComidaMejora.text = "Lv." + nivelMejoraAlimentosAux.ToString();
+                }
+                }
+             }
     }
 
     public void mejoraDefensa()
     {
 
-        if (!haSidoAccionTomada || accionTomada == 3)
+        if (!haSidoAccionTomada)
         {
-            haSidoAccionTomada = true;
-            accionTomada = 3;
+            if (recursosActuales >= int.Parse(textoTotalDefensaMejora.text))
+            {
+                if (nivelMejoraDefensaAux == numNivelesMejoraDefensa)
+                {
+                    textoComidaMejora.text = "Max level";
 
-            nivelMejoraDefensaAux++;
-            textoDefensaMejora.text = "Lv." + nivelMejoraDefensaAux.ToString();
-        }
+                }
+                else
+                {
+
+                    haSidoAccionTomada = true;
+                    accionTomada = 3;
+
+                    nivelMejoraDefensaAux++;
+                    textoDefensaMejora.text = "Lv." + nivelMejoraDefensaAux.ToString();
+                }
+                     }
+             }
     }
 
     public void mejoraRobots() {
 
-        if (!haSidoAccionTomada || accionTomada == 4)
+        if (!haSidoAccionTomada)
         {
-            haSidoAccionTomada = true;
-            accionTomada = 4;
+            if (recursosActuales >= int.Parse(textoRobotsMejora.text))
+            {
 
-            nivelMejoraRobotsAux++;
-            textoRobotsMejora.text = "Lv." + nivelMejoraRobotsAux.ToString();
-        }
+                if (nivelMejoraRobotsAux == numNivelesMejoraRobots)
+                {
+                    textoComidaMejora.text = "Max level";
+
+                }
+                else
+                {
+                    haSidoAccionTomada = true;
+                    accionTomada = 4;
+
+                    nivelMejoraRobotsAux++;
+                    textoRobotsMejora.text = "Lv." + nivelMejoraRobotsAux.ToString();
+                }
+                     }
+             }
     }
  
  
     public void mejoraCohete() {
 
-        if (!haSidoAccionTomada || accionTomada == 5)
+        if (!haSidoAccionTomada)
         {
-            haSidoAccionTomada = true;
-            accionTomada = 5;
+            if (recursosActuales >= int.Parse(textoTotalProgramaEspacial.text))
+            {
+                if (nivelMejoraCoheteAux == numNivelesMejoraRobots)
+                {
+                    textoComidaMejora.text = "Max level";
 
-            nivelMejoraCoheteAux++;
-            textoProgramaEspacial.text = "Lv." + nivelMejoraCoheteAux.ToString();
-        }
+                }
+                else
+                {
+
+                    haSidoAccionTomada = true;
+                    accionTomada = 5;
+
+                    nivelMejoraCoheteAux++;
+                    textoProgramaEspacial.text = "Lv." + nivelMejoraCoheteAux.ToString();
+                }
+                     }
+             }
     }
 
     public void resetMejoras() {
 
-        haSidoAccionTomada = false;
-        accionTomada = -1;
+        if (haSidoAccionTomada && (accionTomada == 2 || accionTomada == 3 || accionTomada == 4 || accionTomada == 5)) { 
 
-        nivelMejoraAlimentosAux = nivelDeMejoraAlimentosActual;
-        nivelMejoraCoheteAux = nivelDeMejoraCoheteActual;
-        nivelMejoraDefensaAux = nivelDeMejoraDefensasActual;
-        nivelMejoraRobotsAux = nivelDeMejoraRobotsActual;
+            haSidoAccionTomada = false;
+            accionTomada = -1;
 
-        textoRobotsMejora.text = "Lv." + nivelMejoraRobotsAux.ToString();
-        textoDefensaMejora.text = "Lv." + nivelMejoraDefensaAux.ToString();
-        textoComidaMejora.text = "Lv." + nivelMejoraAlimentosAux.ToString();
-        textoProgramaEspacial.text = "Lv." + nivelMejoraCoheteAux.ToString();
+            nivelMejoraAlimentosAux = nivelDeMejoraAlimentosActual;
+            nivelMejoraCoheteAux = nivelDeMejoraCoheteActual;
+            nivelMejoraDefensaAux = nivelDeMejoraDefensasActual;
+            nivelMejoraRobotsAux = nivelDeMejoraRobotsActual;
+
+            textoRobotsMejora.text = "Lv." + nivelMejoraRobotsAux.ToString();
+            textoDefensaMejora.text = "Lv." + nivelMejoraDefensaAux.ToString();
+            textoComidaMejora.text = "Lv." + nivelMejoraAlimentosAux.ToString();
+            textoProgramaEspacial.text = "Lv." + nivelMejoraCoheteAux.ToString();
+        }
     
     }
 
@@ -261,14 +358,19 @@ public class UIController : MonoBehaviour {
 
         if (!haSidoAccionTomada ||accionTomada == 6)
         {
-            haSidoAccionTomada = true;
-            accionTomada = 6;
 
-            robotsEnBunker++;
-            robotsAExpedicion--;
+            if (robotsAExpedicion > 0 && !expedicionActiva)
+            {
 
-            textoNumBunker.text = robotsEnBunker.ToString();
-            textoNumExpedicion.text = robotsAExpedicion.ToString();
+                haSidoAccionTomada = true;
+                accionTomada = 6;
+
+                robotsEnBunkerAux++;
+                robotsAExpedicion--;
+
+                textoNumBunker.text = robotsEnBunkerAux.ToString();
+                textoNumExpedicion.text = robotsAExpedicion.ToString();
+            }
         }
     }
 
@@ -277,15 +379,39 @@ public class UIController : MonoBehaviour {
 
         if (!haSidoAccionTomada || accionTomada == 6)
         {
-            haSidoAccionTomada = true;
-            accionTomada = 6;
-            seIniciaExpedicion = true;
 
-            robotsEnBunker--;
-            robotsAExpedicion++;
+            if (robotsEnBunkerAux > 0 && !expedicionActiva)
+            {
 
-            textoNumBunker.text = robotsEnBunker.ToString();
+                haSidoAccionTomada = true;
+                accionTomada = 6;
+                seIniciaExpedicion = true;
+
+                robotsEnBunkerAux--;
+                robotsAExpedicion++;
+
+                textoNumBunker.text = robotsEnBunkerAux.ToString();
+                textoNumExpedicion.text = robotsAExpedicion.ToString();
+            }
+        }
+
+    }
+
+    public void resetTraspaso() {
+
+        if (haSidoAccionTomada && (accionTomada == 6))
+        {
+            haSidoAccionTomada = false;
+            accionTomada = -1;
+            seIniciaExpedicion = false;
+
+            robotsEnBunkerAux = robotsEnBunker;
+            robotsAExpedicion = 0;
+
+            textoNumBunker.text = robotsEnBunkerAux.ToString();
             textoNumExpedicion.text = robotsAExpedicion.ToString();
+
+
         }
 
     }
@@ -298,16 +424,41 @@ public class UIController : MonoBehaviour {
         datos.robotsNuevos = int.Parse(textoAumentarRobots.text);
         datos.alimentosNuevos = int.Parse(textoAumentarAlimentos.text);
 
-        //Necesita recursos que se han gastado y el tipo de construccion
         datos.accionTomada = accionTomada;
         datos.seIniciaExpedicion = seIniciaExpedicion;
-
-      
 
         //Modulo robots
         datos.robotsEnBunker = int.Parse(textoNumBunker.text);
         datos.robotsAExpedicion = int.Parse(textoNumExpedicion.text);
 
+        switch (accionTomada) { 
+            
+            case 0:
+                datos.recursosGastados = int.Parse(textoTotalComidaAumentar.text) * numeroComidaAConstruir;
+                break;
+
+            case 1:
+                datos.recursosGastados = int.Parse(textoTotalRobotsAumentar.text) * numeroRobotsAContruir;
+                break;
+
+            case 2:
+                datos.recursosGastados = int.Parse(textoComidaMejora.text);
+                break;
+
+            case 3:
+                datos.recursosGastados = int.Parse(textoDefensaMejora.text);
+                break;
+
+            case 4:
+                datos.recursosGastados = int.Parse(textoRobotsMejora.text);
+                break;
+
+            case 5:
+                datos.recursosGastados = int.Parse(textoProgramaEspacial.text);
+                break;
+        
+        
+        }
 
         return datos;
 

@@ -17,6 +17,7 @@ public class DatosInterfaz  {
     public int robotsAExpedicion;
     public int estacionesRestantesActual;
 
+    public int recursosGastados;
     public DatosInterfaz()
     {
         robotsNuevos = 0;
@@ -28,6 +29,8 @@ public class DatosInterfaz  {
         robotsEnBunker = 0;
         robotsAExpedicion = 0;
         estacionesRestantesActual = 0;
+
+        recursosGastados = 0;
 
     }
 
