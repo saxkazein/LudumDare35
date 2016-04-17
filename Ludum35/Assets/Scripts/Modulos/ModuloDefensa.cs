@@ -40,7 +40,7 @@ public class ModuloDefensa {
 
         int danoFinalDePatos = Mathf.RoundToInt(danoFijo + ( danoFijo * varianzaDanoFinal));
 
-        int cantidadDefensa = Mathf.RoundToInt(bonificadorTorreta * defensaDeTorreta);
+        int cantidadDefensa = Mathf.RoundToInt(bonificadorTorreta + defensaDeTorreta);
 
         //Calculamos resultado final del intercambio
         int resultadoIntercambio = cantidadDefensa - danoFinalDePatos;
