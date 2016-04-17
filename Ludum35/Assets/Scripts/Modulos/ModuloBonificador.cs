@@ -25,7 +25,7 @@ public class ModuloBonificador {
     private int[] precioBaseMejoraDefensa;
     private int[] precioBaseMejoraRobot;
     private int[] precioBaseMejoraAlimento;
-    private int[] precioBaseCohete
+    private int[] precioBaseCohete;
     /**
 	 * Método que realiza la inicialización del módulo
 	 */
