@@ -7,6 +7,8 @@ public class DatosTurno
     public int nivelMejoraRoboticaInicial;
     public int nivelMejoraAlimentoInicial;
     public int nivelMejoraDefensaInicial;
+    public int nivelMejoraCoheteInicial;
+
     public int numeroPoblacionInicial;
     public int numeroRobotsOrdenPublico;
 	public float bonificadorConstruccionRobots;
@@ -24,6 +26,7 @@ public class DatosTurno
     public int nivelMejoraRoboticaResultante;
     public int nivelMejoraAlimentoResultante;
     public int nivelMejoraDefensaResultante;
+    public int nivelMejoraCoheteResultante;
 
     public int numeroCambiaformasInicial;
     public int numeroRobotsInicio;
@@ -64,6 +67,8 @@ public class DatosTurno
         nivelMejoraRoboticaInicial = datosTurnoIniciales.nivelMejoraRoboticaInicial; 
     	nivelMejoraAlimentoInicial = datosTurnoIniciales.nivelMejoraAlimentoInicial;
     	nivelMejoraDefensaInicial = datosTurnoIniciales.nivelMejoraDefensaInicial;
+    	nivelMejoraCoheteInicial = datosTurnoIniciales.nivelMejoraCoheteInicial;
+
     	numeroPoblacionInicial = datosTurnoIniciales.numeroPoblacionInicial;
     	numeroRobotsOrdenPublico= datosTurnoIniciales.numeroRobotsOrdenPublico;
 		bonificadorConstruccionRobots = datosTurnoIniciales.bonificadorConstruccionRobots;
@@ -83,6 +88,7 @@ public class DatosTurno
     	nivelMejoraRoboticaResultante = datosTurnoIniciales.nivelMejoraRoboticaResultante;
     	nivelMejoraAlimentoResultante = datosTurnoIniciales.nivelMejoraAlimentoResultante;
     	nivelMejoraDefensaResultante = datosTurnoIniciales.nivelMejoraDefensaResultante;
+    	nivelMejoraCoheteResultante = datosTurnoIniciales.nivelMejoraCoheteResultante;
 
     	numeroComidaInicial = datosTurnoIniciales.numeroComidaInicial;
     	numeroComidaConsumida = datosTurnoIniciales.numeroComidaConsumida;

@@ -5,6 +5,8 @@ public class DatosTurnoIniciales{
     public int nivelMejoraRoboticaInicial;
     public int nivelMejoraAlimentoInicial;
     public int nivelMejoraDefensaInicial;
+    public int nivelMejoraCoheteInicial;
+
     public int numeroPoblacionInicial;
     public int numeroRobotsOrdenPublico;
     public float bonificadorConstruccionRobots;
@@ -22,6 +24,7 @@ public class DatosTurnoIniciales{
     public int nivelMejoraRoboticaResultante;
     public int nivelMejoraAlimentoResultante;
     public int nivelMejoraDefensaResultante;
+    public int nivelMejoraCoheteResultante;
 
     public int numeroCambiaformasInicial;
     public int numeroRobotsInicio;

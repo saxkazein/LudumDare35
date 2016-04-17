@@ -37,11 +37,15 @@ public class DatosConfiguracion {
 	public float maximoPorcentajePerdidasRobotInfiltracion;
 	public float porcentajePerdidasPorCambiaformas;
 
-	public float costeBaseAlimento;
-	public float costeBaseRobot;
-	public float[] costeBaseMejoraRobot;
-	public float[] costeBaseMejoraTorreta;
-	public float[] costeBaseMejoraAlimento;
-	public float costeBaseCohete;
+	public int costeBaseAlimento;
+	public int costeBaseRobot;
+	public int[] costeBaseMejoraRobot;
+	public int[] costeBaseMejoraTorreta;
+	public int[] costeBaseMejoraAlimento;
+	public int[] costeBaseCohete;
 
+    public int poblacionInicial;
+    public int robotsIniciales;
+    public int recursosIniciales;
+    public int comidaInicial;
 }

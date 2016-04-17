@@ -81,7 +81,8 @@ public class Core : Singleton<Core>
     {
         int _nivelMejoraRoboticaResultante = datosTurno.nivelMejoraRoboticaResultante;
         int _nivelMejoraAlimentoResultante = datosTurno.nivelMejoraAlimentoResultante;
-        int _nivelMejoraDefensaResultante = datosTurno.nivelMejoraDefensaInicial;
+        int _nivelMejoraDefensaResultante = datosTurno.nivelMejoraDefensaResultante;
+        int _nivelMejoraCoheteResultante = datosTurno.nivelMejoraCoheteResultante;
         int _numeroPoblacionResultante = datosTurno.numeroPoblacionInicial + datosTurno.numeroPoblacionEncuentro + datosTurno.numeroPoblacionPerdidaAtaque + datosTurno.numeroPoblacionPerdidaInfiltracion;
 
         int _numeroRobotsExpedicionResultante = datosTurno.numeroRobotsExpedicion;
@@ -102,6 +103,7 @@ public class Core : Singleton<Core>
         datosTurno.nivelMejoraRoboticaInicial = _nivelMejoraRoboticaResultante;
         datosTurno.nivelMejoraAlimentoInicial = _nivelMejoraAlimentoResultante;
         datosTurno.nivelMejoraDefensaInicial = _nivelMejoraDefensaResultante;
+        datosTurno.nivelMejoraCoheteInicial = _nivelMejoraCoheteResultante;
 
         datosTurno.numeroPoblacionInicial = _numeroPoblacionResultante;
 
