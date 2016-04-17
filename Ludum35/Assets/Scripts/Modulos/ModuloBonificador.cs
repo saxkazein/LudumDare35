@@ -9,7 +9,7 @@ using System.Collections;
 public class ModuloBonificador {
 
     private float aumentoBonificacionResistenciaRobots;
-    private float aumentoBonificacionCosteRobots;
+    //private float aumentoBonificacionCosteRobots;
     private float aumentoBonificacionMejoraTorreta;
     private float aumentoBonificacionMejoraAlimentos;
     private float aumentoBonificacionCostePoblacion;
@@ -31,7 +31,7 @@ public class ModuloBonificador {
 	 */
     public void Start(DatosConfiguracion datosConfig) {
         aumentoBonificacionResistenciaRobots = datosConfig.aumentoBonificacionMejoraResistenciaRobots;
-        aumentoBonificacionCosteRobots = datosConfig.aumentoBonificacionMejoraCosteRobots;
+        //aumentoBonificacionCosteRobots = datosConfig.aumentoBonificacionMejoraCosteRobots;
         aumentoBonificacionMejoraTorreta = datosConfig.aumentoBonificacionMejoraTorreta;
         aumentoBonificacionMejoraAlimentos = datosConfig.aumentoBonificacionMejoraAlimentos;
         aumentoBonificacionCostePoblacion = datosConfig.aumentoBonificacionCostePorPoblacion;
@@ -44,6 +44,7 @@ public class ModuloBonificador {
 
         precioBaseRobot = datosConfig.costeBaseRobot;
         precioBaseAlimento = datosConfig.costeBaseAlimento;
+        precioBaseMejoraAlimento = datosConfig.costeBaseMejoraAlimento;
         precioBaseMejoraDefensa = datosConfig.costeBaseMejoraTorreta;
         precioBaseMejoraRobot = datosConfig.costeBaseMejoraRobot;
         precioBaseCohete = datosConfig.costeBaseCohete;
@@ -72,5 +73,19 @@ public class ModuloBonificador {
         int precioMejoraRobot = Mathf.RoundToInt(precioBaseMejoraRobot[datosTurno.nivelMejoraRoboticaInicial] * bonificadorPrecio);
         int precioMejoraAlimento = Mathf.RoundToInt(precioBaseMejoraAlimento[datosTurno.nivelMejoraAlimentoInicial] * bonificadorPrecio);
         int precioCohete = Mathf.RoundToInt(precioBaseCohete[datosTurno.nivelMejoraCoheteInicial] * bonificadorPrecio);
+
+        datosTurno.precioActualRobot = precioRobot;
+        datosTurno.precioActualAlimento = precioAlimento;
+        datosTurno.precioActualMejoraDefensa = precioMejoraDefensa;
+        datosTurno.precioActualMejoraAlimentos = precioMejoraAlimento;
+        datosTurno.precioActualMejoraRobots = precioMejoraRobot;
+        datosTurno.precioActualCohete = precioCohete;
+
+        datosTurno.bonificadorAlimentos = bonificadorAlimentos;
+        datosTurno.bonificadorResistenciaRobot = bonificadorResistenciaRobot;
+        datosTurno.bonificadorTorretas = bonificadorDefensa;
+        datosTurno.bonificadorInfiltracion = bonificadorInfiltracion;
+        datosTurno.bonificadorConstruccionPoblacion = bonificadorPrecio;
+        datosTurno.bonificadorConstruccionRobots = bonificadorPrecio;
     }
 }

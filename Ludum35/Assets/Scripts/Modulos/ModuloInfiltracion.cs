@@ -14,7 +14,6 @@ public class ModuloInfiltracion  {
 	private int enemigosMuertosPorRobot;
 	private float probabilidadRobotMuerto;
 	private float maximoPorcentajeRobotsMuertos;
-	private float probabilidadInfiltracion;
 	private float perdidasPorEnemigo;
 
 	private float numeroRobotsPerdidosInfiltracion;
@@ -24,12 +23,9 @@ public class ModuloInfiltracion  {
 	 *  Método para la inicialización del módulo
 	 */ 
 	public void Start(DatosConfiguracion datosConfiguracion){
-		ciudadanosCubiertosPorRobot = Mathf.RoundToInt(datosConfiguracion.poblacionCubiertaPorRobot);
-		aumentoProbabilidadInfiltracionCiudadanosNoCubiertos = Mathf.RoundToInt(datosConfiguracion.aumentoProbabilidadInfiltracion);
 		enemigosMuertosPorRobot = Mathf.RoundToInt(datosConfiguracion.cambiaformasPorRobot);
 		probabilidadRobotMuerto = datosConfiguracion.probabilidadBasePerderRobotInfiltracion;
 		maximoPorcentajeRobotsMuertos = datosConfiguracion.maximoPorcentajePerdidasRobotInfiltracion;
-		probabilidadInfiltracion = datosConfiguracion.probabilidadBaseInfiltracion;
 		perdidasPorEnemigo = datosConfiguracion.porcentajePerdidasPorCambiaformas;
 	}
 
@@ -43,7 +39,7 @@ public class ModuloInfiltracion  {
         int numeroRecursosPerdidosInfiltracion = 0;
         int numeroPoblacionPerdidaInfiltracion = -datosTurno.numeroCambiaformasInicial;
 
-        int cambiaformasSupervivientes = datosTurno.numeroCambiaformasInicial - (datosTurno.numeroRobotsOrdenPublico * 2);
+        int cambiaformasSupervivientes = datosTurno.numeroCambiaformasInicial - (datosTurno.numeroRobotsOrdenPublico * enemigosMuertosPorRobot);
 
         float rng = 0;
 
