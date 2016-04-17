@@ -26,7 +26,7 @@ public class Core : Singleton<Core>
     void Start()
     {
         CargaDatosConfiguracion();
-        InicializaModulos();
+//        InicializaModulos();
         IniciaDatosPartida();
     }
 
