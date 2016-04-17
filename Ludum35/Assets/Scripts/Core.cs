@@ -52,6 +52,11 @@ public class Core : Singleton<Core>
         configuracion = JsonUtility.FromJson<DatosConfiguracion>(textAsset.text);
         textAsset = Resources.Load(pathArchivoDatosIniciales) as TextAsset;
         datosTurnoIniciales = JsonUtility.FromJson<DatosTurnoIniciales>(textAsset.text);
+
+        string str = JsonUtility.ToJson(configuracion);
+        System.IO.File.WriteAllText(Application.dataPath + "/Save/" + "configuracion.json", str);
+        str = JsonUtility.ToJson(datosTurnoIniciales);
+        System.IO.File.WriteAllText(Application.dataPath + "/Save/" + "datosTurnoIniciales.json", str);
     }
     #endregion CargaDeDatos
 
