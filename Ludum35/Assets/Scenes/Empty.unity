@@ -85,6 +85,11 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &80270458 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22499880, guid: a7a10768ac7fafe42a368bfc417130d2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1120871695}
 --- !u!1 &156108316
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +174,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1005409709}
+  - {fileID: 80270458}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
@@ -263,12 +268,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!224 &1005409709 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22499880, guid: a7a10768ac7fafe42a368bfc417130d2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1345641249}
---- !u!1001 &1345641249
+--- !u!1001 &1120871695
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -309,11 +309,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22499880, guid: a7a10768ac7fafe42a368bfc417130d2, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -344.96
+      value: -345
       objectReference: {fileID: 0}
     - target: {fileID: 22499880, guid: a7a10768ac7fafe42a368bfc417130d2, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -194.5
+      value: -195
       objectReference: {fileID: 0}
     - target: {fileID: 22499880, guid: a7a10768ac7fafe42a368bfc417130d2, type: 2}
       propertyPath: m_SizeDelta.x
