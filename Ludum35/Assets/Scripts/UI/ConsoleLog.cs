@@ -25,16 +25,16 @@ public class ConsoleLog : MonoBehaviour {
 
         GameObject consola = GameObject.Find("Consola");
 
-        consola.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+      /*  consola.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
         consola.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width/2, Screen.height/4);
-
+        */
 
         //Nada de lo siguiente me gusta
-        this.GetComponent<Text>().fontSize = Mathf.RoundToInt((Screen.width * 11)/1280);       
-
-        logsMinimos = (Screen.width * 4) / 1280;
-        logsMaximos = (Screen.width * 24) / 1280;
-        offsetDeCrecimiento = (Screen.width * 28) / 1280;
+      /*  this.GetComponent<Text>().fontSize = Mathf.RoundToInt((Screen.width * 11)/1280);       
+*/
+        logsMinimos = 4;
+        logsMaximos = (Screen.width * 24) / 1080;
+        offsetDeCrecimiento = (Screen.width * 23) / 1080;
     
         //Hasta aqui
 
