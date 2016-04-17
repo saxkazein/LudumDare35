@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UIController : MonoBehaviour {
 
@@ -463,6 +464,16 @@ public class UIController : MonoBehaviour {
         return datos;
 
     
+    }
+
+    public void generaVentanaEmergenteSiNo(string texto, UnityAction accion){
+
+        ModalPanel.Instance().Emergente(texto, accion);
+    }
+
+    public void generaVentanaEmergenteSlider(string texto, UnityAction<int> accion, int min, int max)
+    {
+        ModalPanel.Instance().Emergente(texto, accion, min, max);
     }
 
 }

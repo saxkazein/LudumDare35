@@ -747,87 +747,87 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22422254, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22422254, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22422254, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 166.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22422254, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457902, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457902, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457902, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 173.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457902, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 166.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22457902, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22472988, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22472988, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22472988, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22472988, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22472988, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22472988, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22411508, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22411508, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22411508, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 172.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22411508, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -19.912436
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22411508, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 202.99998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22411508, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 39.82487
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8aba246e8b9fe8c429cb33051f2c3970, type: 2}
@@ -925,7 +925,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 525634845}
-        m_MethodName: resetMejoras
+        m_MethodName: resetTraspaso
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
