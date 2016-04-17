@@ -81,6 +81,8 @@ public class ConsoleLog : MonoBehaviour {
 
     void Update()
     {
+
+        
         if (Input.GetKeyDown(KeyCode.A))
         {
             x++;
