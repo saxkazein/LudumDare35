@@ -17,15 +17,16 @@ public class ConsoleLog : MonoBehaviour {
 
     void Start() {
         i = 0;
-        logsMinimos = 5;
-        logsMaximos = 15;
-        offsetDeCrecimiento = 10.0f;
+        logsMinimos = 1;
+        logsMaximos = 25;
+        offsetDeCrecimiento = 32.0f;
         rectTransform = this.GetComponent<RectTransform>();
         logs = new Queue<string>();
     }
 
 
-    //Imprime en la consola principal del juego logs de eventos y sucesos
+    //Imprime en la consola principal del juego logs de eventos y sucesos. 
+    //IMPORTANTE: TODOS LOS LOS TIENEN QUE OCUPAR DOS LINEAS COMO MÍNIMO Y COMO MÁXIMO PARA QUE SE VISUALICE CORRECTAMENTE.
     void imprimirEnConsola(string toPrint) {
 
        
@@ -36,11 +37,10 @@ public class ConsoleLog : MonoBehaviour {
 
         foreach (string log in logs)
         {
-
-            this.GetComponent<Text>().text += "\n" + log;
+            this.GetComponent<Text>().text += "\n" + log +"\n";
 
         }
-
+      
 
         if (i > logsMinimos && i < logsMaximos)
         {
@@ -61,11 +61,20 @@ public class ConsoleLog : MonoBehaviour {
             
     }
 
+    public int x = 0;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            imprimirEnConsola("Hola compañero! Que tal estas como andamos bien ok pues nada aqui estamos");
+            x++;
+            imprimirEnConsola("Hola compañero! Que tal estas como andamos bien ok pues nada aqui estamos" + x.ToString());
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            x++;
+            imprimirEnConsola("Muy mal, pero hacemos lo que podemos Muy mal, pero hacemos lo que podemo Muy mal, pero hacemos lo que podemoss" + x.ToString());
 
         }
         
