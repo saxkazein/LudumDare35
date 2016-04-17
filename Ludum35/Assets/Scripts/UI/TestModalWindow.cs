@@ -11,6 +11,8 @@ public class TestModalWindow : MonoBehaviour
 
     private UnityAction accionSi;
     private UnityAction accionNo;
+    private UnityAction accionAceptar;
+
     private UnityAction<int> accionOk;
 
 
@@ -22,6 +24,8 @@ public class TestModalWindow : MonoBehaviour
         accionSi = new UnityAction(TestFuncionSi);
         accionNo = new UnityAction(TestFuncionNo);
         accionOk = new UnityAction<int>(TestFuncionOk);
+        accionAceptar = new UnityAction(TestFuncionAceptar);
+
 
     }
 
@@ -45,6 +49,12 @@ public class TestModalWindow : MonoBehaviour
             modalPanel.Emergente("Cuantos robots quieres destinar?", accionOk, 0, 25);
 
         }
+        else if (Input.GetKeyDown(KeyCode.L))
+        {
+
+            modalPanel.Emergente("Tus robots han desubierto su lado sexy y se estan untando aceite. Has perdido 20 robots", accionAceptar);
+
+        }
     }
 
     void TestFuncionSi()
@@ -56,6 +66,11 @@ public class TestModalWindow : MonoBehaviour
     {
         Debug.Log("NO");
     }
+    void TestFuncionAceptar()
+    {
+        Debug.Log("MMM VENGA OC");
+    }
+
     void TestFuncionOk(int valor)
     {
         

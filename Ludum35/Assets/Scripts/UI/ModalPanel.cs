@@ -93,6 +93,32 @@ public class ModalPanel : MonoBehaviour
 
     }
 
+      //Tercera sobrecarga: crea una ventana emergente con un texto y un botón de aceptar
+      public void Emergente(string question, UnityAction confirmEvent)
+      {
+
+          modalPanelObject.SetActive(true);
+
+
+          botonOk.onClick.RemoveAllListeners();
+          botonOk.onClick.AddListener(confirmEvent);
+          botonOk.onClick.AddListener(ClosePanel);
+
+          this.question.text = question;
+          this.iconImage.gameObject.SetActive(false);
+
+          botonOk.gameObject.SetActive(true);
+
+          botonNo.gameObject.SetActive(false);
+          botonSi.gameObject.SetActive(false);
+          slider.gameObject.SetActive(false);
+          cantidad.gameObject.SetActive(false);
+
+
+
+
+      }
+
     void ClosePanel()
     {
         modalPanelObject.SetActive(false);
