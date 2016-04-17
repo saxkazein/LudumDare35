@@ -46,83 +46,59 @@ public class AudioManager : MonoBehaviour {
 	// EFECTOS
 	public void playClick01(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoClick01;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoClick01);
 	}
 
 	public void playClick02(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoClick02;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoClick02);
 	}
 
 	public void playComida01(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoComida01;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoComida01);
 	}
 	public void playMejora(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoMejora;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoMejora);
 	}
 
 	public void playRobot01(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoRobot01;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoRobot01);
 	}
 
 	public void playRobot02(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoRobot02;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoRobot02);
 	}
 	public void playRobot03(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoRobot03;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoRobot03);
 	}
 
 	public void playRobot04(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoRobot04;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoRobot04);
 	}
 
 	public void playRobot05(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoRobot05;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoRobot05);
 	}
 	public void playSaltoTurno(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoSaltoTurno;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoSaltoTurno);
 	}
 
 	public void playSiguiente02(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoSiguiente02;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoSiguiente02);
 	}
 
 	public void playWin01(){
 		audioSource.volume = volumenBase;
-		audioSource.loop = true;
-		audioSource.clip = efectoWin01;
-		audioSource.Play();
+		audioSource.PlayOneShot (efectoWin01);
 	}
 
 	// TRACKS
