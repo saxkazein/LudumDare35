@@ -50,4 +50,26 @@ public class DatosConfiguracion {
     public int comidaInicial;
 
     public float probabilidadAtaquePatos;
+
+    public float[] datosEncuentro1;
+    public float[] datosEncuentro2;
+    public float[] datosEncuentro3;
+    public float[] datosEncuentro4;
+    public float[] datosEncuentro5;
+    public float[] datosEncuentro6;
+    public float[] datosEncuentro7;
+    public float[] datosEncuentro8;
+    public float[] datosEncuentro9;
+    public float[] datosEncuentro10;
+
+    public string fraseEncuentro1;
+    public string fraseEncuentro2;
+    public string fraseEncuentro3;
+    public string fraseEncuentro4;
+    public string fraseEncuentro5;
+    public string fraseEncuentro6;
+    public string fraseEncuentro7;
+    public string fraseEncuentro8;
+    public string fraseEncuentro9;
+    public string fraseEncuentro10;
 }
