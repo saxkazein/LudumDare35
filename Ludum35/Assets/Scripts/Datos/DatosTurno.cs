@@ -53,6 +53,12 @@ public class DatosTurno
     public int numeroRecursosEncuentro;
     public int numeroComidaEncuentro;
 
+    public int precioActualRobot;
+    public int precioActualAlimento;
+    public int precioActualMejoraDefensa;
+    public int precioActualMejoraRobots;
+    public int precioActualMejoraAlimentos;
+    public int precioActualCohete;
     public void ResetDatosTurno(DatosTurnoIniciales datosTurnoIniciales)
     {
         nivelMejoraRoboticaInicial = datosTurnoIniciales.nivelMejoraRoboticaInicial; 
@@ -103,5 +109,12 @@ public class DatosTurno
     	numeroRobotsEncuentro = datosTurnoIniciales.numeroRobotsEncuentro;
     	numeroRecursosEncuentro = datosTurnoIniciales.numeroRecursosEncuentro;
         numeroComidaEncuentro = datosTurnoIniciales.numeroComidaEncuentro;
+
+        precioActualRobot = datosTurnoIniciales.precioActualRobot;
+    	precioActualAlimento = datosTurnoIniciales.precioActualAlimento;
+    	precioActualMejoraDefensa = datosTurnoIniciales.precioActualMejoraDefensa;
+    	precioActualMejoraRobots = datosTurnoIniciales.precioActualMejoraRobots;
+    	precioActualMejoraAlimentos = datosTurnoIniciales.precioActualMejoraAlimentos;
+    	precioActualCohete = datosTurnoIniciales.precioActualCohete;
     }
 }

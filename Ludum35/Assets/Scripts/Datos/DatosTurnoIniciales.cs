@@ -50,4 +50,12 @@ public class DatosTurnoIniciales{
     public int numeroRobotsEncuentro;
     public int numeroRecursosEncuentro;
     public int numeroComidaEncuentro;
+
+    public int precioActualRobot;
+    public int precioActualAlimento;
+    public int precioActualMejoraDefensa;
+    public int precioActualMejoraRobots;
+    public int precioActualMejoraAlimentos;
+    public int precioActualCohete;
 }
+
