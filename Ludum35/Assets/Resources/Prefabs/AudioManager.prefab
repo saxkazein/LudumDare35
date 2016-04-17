@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &184484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 467108}
+  - 114: {fileID: 11470582}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &467108
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184484}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 438.74872, y: 209.42761, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11470582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 793312a5172a7b14d8d3f3a1978f0453, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  efectoClick01: {fileID: 8300000, guid: 9169897cb99f1f348b2ca210cfd53fd0, type: 3}
+  efectoClick02: {fileID: 8300000, guid: 23ef7c48bfec7fd47b81fc0d7697ac00, type: 3}
+  efectoComida01: {fileID: 8300000, guid: c9e89959bc7ce8d4088a73a3c2c59618, type: 3}
+  efectoMejora: {fileID: 8300000, guid: 12eccbae8869af247a302f37434966b6, type: 3}
+  efectoRobot01: {fileID: 8300000, guid: 48e694ac411f784469555118f3d90ec7, type: 3}
+  efectoRobot02: {fileID: 8300000, guid: 52cee7762d70220498f8ed4deb27bbef, type: 3}
+  efectoRobot03: {fileID: 8300000, guid: 18b9f20c865ea2243a038ac07c6b7a7a, type: 3}
+  efectoRobot04: {fileID: 8300000, guid: f88ed902daae0c143aca01dbb5dc03c4, type: 3}
+  efectoRobot05: {fileID: 8300000, guid: 8bad60999308198468632b3b3e87747f, type: 3}
+  efectoSaltoTurno: {fileID: 8300000, guid: 7978997004e3783418b8cff1c0141b4b, type: 3}
+  efectoSiguiente02: {fileID: 8300000, guid: ed58d308836e97047b7e628945555c65, type: 3}
+  efectoWin01: {fileID: 8300000, guid: a3dd5ff240bebcc41a6cfd2a52a71ee8, type: 3}
+  trackIntro: {fileID: 8300000, guid: e691de0da8f62694eb21fbabd7c80512, type: 3}
+  trackGameOver: {fileID: 8300000, guid: 255e4ae3a5c314a4cb3fcc42e36b161b, type: 3}
+  trackLoop1: {fileID: 8300000, guid: 885e8bd4fb5b23f429abc464fc401b1c, type: 3}
+  volumenBase: 1
+  audioSource: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 184484}
+  m_IsPrefabParent: 1
